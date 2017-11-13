@@ -49,6 +49,9 @@ for (category, hashtags) in sorted(hashtag_categories.items()):
             if not value:
                 value = default
             return html.escape(value)
+
+        if not row.get('#status') in ('Released', 'Pre-release'):
+            continue
         
         print('    <dt class="hashtag" id="tag_' + html.escape(hashtag.replace('#', '')) + '">' + html.escape(hashtag) + '</dt>')
         print('    <dd class="description">' + esc('#description') + '</dd>')
