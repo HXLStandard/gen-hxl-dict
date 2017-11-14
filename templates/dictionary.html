@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HXL hashtags and attributes</title>
+    <meta charset="UTF-8"/>
+    <style>
+      body {
+        margin: 1em;
+        font-family: sans-serif;
+      }
+      dt {
+        font-size: 120%;
+        font-weight: bold;
+        margin-top: 1em;
+      }
+      table {
+        border-collapse:collapse;
+        font-size:83.333333%;
+      }
+      td, th {
+        padding: .5em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HXL hashtags and attributes</h1>
+    <p>TODO</p>
+    <section id="hashtags">
+      <h2>1. Core HXL hashtags</h2>
+      {% for category in hashtags_by_category | sort %}
+      <section>
+        <h2>{{ category }}</h2>
+        <dl>
+          {% for hashtag in hashtags_by_category[category] | sort %}
+          {% set def = hashtag_defs[hashtag] %}
+          <dt id="{{ hashtag | replace('#', 'tag_') }}">{{ hashtag }}</dt>
+          <dd>
+            <p>{{ def.get('#description') }}</p>
+            <p><i>Status:</i> {{ def.get('#status') }} (since {{def.get('#meta +release') }})</p>
+            {% if def.get('#valid_vocab +default') %}
+            <p><i>Default vocabulary:</i> {{ def.get('#valid_vocab +default') }}</p>
+            {% endif %}
+            {% if hashtag_attribute_map[hashtag] %}
+            <p><i>Suggested attributes:</i></p>
+            <table border="border">
+              {% for attribute in hashtag_attribute_map[hashtag] | sort %}
+              {% set def=attribute_defs[attribute] %}
+              <tr>
+                <td><a href="{{ attribute | replace('+', '#att_') }}">{{ attribute }}</a></td>
+                <td>{{ def.get('#description') }}</td>
+              </tr>
+              {% endfor %}
+            </table>
+          {% endif %}
+          </dd>
+          {% endfor %}
+        </dl>
+      </section>
+      {% endfor %}
+    </section>
+    <section id="attributes">
+      <h2>2. Core HXL attributes</h2>
+      {% for category in attributes_by_category | sort %}
+      <section>
+        <h2>{{ category }}</h2>
+        <dl>
+          {% for attribute in attributes_by_category[category] | sort %}
+          {% set def = attribute_defs[attribute] %}
+          <dt id="{{ attribute | replace('+', 'att_')  }}">{{ attribute }}</dt>
+          <dd>
+            <p>{{ def.get('#description') }}</p>
+            <p><i>Status:</i> {{ def.get('#status') }} (since {{def.get('#meta +release') }})</p>
+            {% if attribute_hashtag_map[attribute] %}
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              {% for hashtag in attribute_hashtag_map[attribute] | sort %}
+              {% set def = hashtag_defs.get(hashtag) %}
+              <tr>
+                <td><a href="{{ hashtag | replace('#', '#tag_') }}">{{ hashtag }}</a></td>
+                {% if def %}
+                <td>{{ def.get('#description') }}</td>
+                {% endif %}
+              </tr>
+              {% endfor %}
+            </table>
+            {% endif %}
+          </dd>
+          {% endfor %}
+        </dl>
+      </section>
+      {% endfor %}
+    </section>
+  </body>
+</html>

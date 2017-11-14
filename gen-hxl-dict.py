@@ -3,7 +3,7 @@ import sys
 if sys.version_info < (3, 2):
     raise SystemExit("gen-hxl-dict requires at least Python 3.2")
 
-import hxl, html
+import hxl, html, jinja2, re
 
 
 HASHTAGS_URL = 'https://docs.google.com/spreadsheets/d/1En9FlmM8PrbTWgl3UHPF_MXnJ6ziVZFhBbojSJzBdLI/edit#gid=319251406'
@@ -12,65 +12,103 @@ HASHTAGS_URL = 'https://docs.google.com/spreadsheets/d/1En9FlmM8PrbTWgl3UHPF_MXn
 ATTRIBUTES_URL = 'https://docs.google.com/spreadsheets/d/1En9FlmM8PrbTWgl3UHPF_MXnJ6ziVZFhBbojSJzBdLI/edit#gid=1810309357'
 """URL for the HXL dataset defining the core attributes."""
 
+hashtag_defs = {}
+"""Hashtag definitions (HXL rows)."""
 
-hashtag_categories = {}
+hashtags_by_category = {}
+"""Hashtags grouped by category."""
 
-def add_to_category (row):
+hashtag_attribute_map = {}
+"""Hashtag-attribute associations."""
+
+attribute_defs = {}
+"""Attribute definitions (HXL rows)."""
+
+attributes_by_category = {}
+"""Attributes grouped by category."""
+
+attribute_hashtag_map = {}
+"""Attribute-hashtag associations."""
+
+
+def process_hashtag_def (row):
+    """Process a hashtag definition."""
     hashtag = row.get('#valid_tag')
-    if not hashtag:
-        return # TODO: print warning to stderr
+
+    # Save the hashtag definition
+    if hashtag:
+        # TODO report duplicate definitions
+        hashtag_defs[hashtag] = row
+    else:
+        return # TODO print warning to STDERR
+
+    # Group hashtags by category
     category = row.get('#meta +category')
-    if not category:
-        category = 'Uncategorised'
-    if not hashtag_categories.get(category):
-        hashtag_categories[category] = {}
-    hashtag_categories[category][hashtag] = row
+    if category:
+        if not hashtags_by_category.get(category):
+            hashtags_by_category[category] = []
+        hashtags_by_category[category].append(hashtag)
+    else:
+        pass # TODO warning of missing category
 
+def process_attribute_def (row):
+    """Process an attribute definition."""
+    attribute = row.get('#valid_attribute')
 
-print('<!DOCTYPE html>')
-print('<html>')
-print('<body>')
+    # Save the attribute definition
+    if attribute:
+        # TODO report duplicate definitions
+        attribute_defs[attribute] = row
+    else:
+        return # TODO report warning to STDERR
+    
+    # Group attribute defs by category
+    category = row.get('#meta +category')
+    if category:
+        if not attributes_by_category.get(category):
+            attributes_by_category[category] = []
+        attributes_by_category[category].append(attribute)
+    else:
+        pass # TODO warning of missing category
 
-print('<section id="hashtags">')
-print('<h1>1. Core hashtags</h1>')
+    # Reverse map the associated hashtags
+    for hashtag in re.split('\s*,\s*', row.get('#valid_hashtags +list', 0, '')):
+        if not hashtag:
+            continue
+        # TODO report non-existant hashtag
+        if not hashtag_attribute_map.get(hashtag):
+            hashtag_attribute_map[hashtag] = set()
+        hashtag_attribute_map[hashtag].add(attribute)
+        if not attribute_hashtag_map.get(attribute):
+            attribute_hashtag_map[attribute] = set()
+        attribute_hashtag_map[attribute].add(hashtag)
+    
 
+# Read the HXL hashtag definitions
 hashtag_data = hxl.data(HASHTAGS_URL)
 for row in hashtag_data:
-    add_to_category(row)
+    process_hashtag_def(row)
 
-for (category, hashtags) in sorted(hashtag_categories.items()):
-    print('<section>')
-    print('  <h2>' + html.escape(category) + '</h2>')
-    print('  <dl>')
-    for (hashtag, row) in sorted(hashtags.items()):
+# Read the HXL attribute definitions
+attribute_data = hxl.data(ATTRIBUTES_URL)
+for row in attribute_data:
+    process_attribute_def(row)
 
-        def esc(tagspec, default=''):
-            value = row.get(tagspec)
-            if not value:
-                value = default
-            return html.escape(value)
 
-        if not row.get('#status') in ('Released', 'Pre-release'):
-            continue
-        
-        print('    <dt class="hashtag" id="tag_' + html.escape(hashtag.replace('#', '')) + '">' + html.escape(hashtag) + '</dt>')
-        print('    <dd class="description">' + esc('#description') + '</dd>')
-        print('    <dd class="datatype">Data type: ' + esc('#valid_datatype', 'any') + '</dd>')
-        print('    <dd class="status">Status: ' + esc('#status') + ' (' + esc('#meta+release', '') + ')</dd>')
-        print('    <dd class="attributes">Suggested attributes: ' + esc('#valid_attributes', 'none') + '</dd>')
-        if row.get('#meta +example +hxl'):
-            print('    <dd class="example">Example: <code>' +
-                  esc('#meta +example +hxl') +
-                  '</code> &mdash; ' +
-                  esc('#meta +example +description') +
-                  ', such as ' +
-                  esc('#meta +example +value') +
-                  '</dd>')
-    print('  </dl>')
-    print('</section>')
+# Generate the output
+env = jinja2.Environment(
+    loader=jinja2.PackageLoader('gen-hxl-dict', 'templates'),
+    autoescape=jinja2.select_autoescape(['html', 'xml'])
+)
 
-print('</section>')
+template = env.get_template('dictionary.html')
 
-print('</body>')
-print('</html>')
-
+print(
+    template.render(
+        hashtag_defs=hashtag_defs,
+        hashtags_by_category=hashtags_by_category,
+        hashtag_attribute_map=hashtag_attribute_map,
+        attribute_defs=attribute_defs,
+        attributes_by_category=attributes_by_category,
+        attribute_hashtag_map=attribute_hashtag_map
+    ))

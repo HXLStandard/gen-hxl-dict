@@ -11,6 +11,6 @@ setup(name='gen-hxl-ict',
       description='Python script to generate HTML HXL hashtag dictionary.',
       author='David Megginson',
       author_email='contact@megginson.com',
-      install_requires=['libhxl'],
+      install_requires=['libhxl', 'jinja2'],
 )
 
