@@ -29,11 +29,14 @@ ATTRIBUTE_CATEGORIES_URL = 'https://docs.google.com/spreadsheets/d/1En9FlmM8PrbT
 # Variables
 #
 
-hashtag_defs = {}
-"""Hashtag definitions (HXL rows)."""
-
 hashtag_categories = []
 """Hashtag category definitions."""
+
+hashtag_category_titles = set()
+"""Lookup to make sure categories exist."""
+
+hashtag_defs = {}
+"""Hashtag definitions (HXL rows)."""
 
 hashtags_by_category = {}
 """Hashtags grouped by category."""
@@ -41,11 +44,14 @@ hashtags_by_category = {}
 hashtag_attribute_map = {}
 """Hashtag-attribute associations."""
 
-attribute_defs = {}
-"""Attribute definitions (HXL rows)."""
-
 attribute_categories = []
 """Attribute category definitions."""
+
+attribute_category_titles = set()
+"""Lookup to make sure categories exist."""
+
+attribute_defs = {}
+"""Attribute definitions (HXL rows)."""
 
 attributes_by_category = {}
 """Attributes grouped by category."""
@@ -81,6 +87,8 @@ def process_hashtag_def (row):
         if not hashtags_by_category.get(category):
             hashtags_by_category[category] = []
         hashtags_by_category[category].append(hashtag)
+        if not category in hashtag_category_titles:
+            alert("Unknown hashtag category: {}".format(category))
     else:
         alert('Skipping hashtag (no category): {}'.format(hashtag))
 
@@ -104,6 +112,8 @@ def process_attribute_def (row):
         if not attributes_by_category.get(category):
             attributes_by_category[category] = []
         attributes_by_category[category].append(attribute)
+        if not category in attribute_category_titles:
+            alert("Unknown attribute category: {}".format(category))
     else:
         alert('Skipping attribute (does not belong to any category): {}'.format(attribute))
 
@@ -124,25 +134,28 @@ def process_attribute_def (row):
 # Runtime code
 #
 
+# Read the hashtag categories
+category_data = hxl.data(HASHTAG_CATEGORIES_URL).sort('#meta+category')
+for row in category_data:
+    hashtag_category_titles.add(row.get('#meta+category'))
+    hashtag_categories.append(row)
+
 # Read the HXL hashtag definitions
 hashtag_data = hxl.data(HASHTAGS_URL).with_rows(['#status=Released', '#status=Pre-release'])
 for row in hashtag_data:
     process_hashtag_def(row)
 
-# Read the hashtag categories
-category_data = hxl.data(HASHTAG_CATEGORIES_URL).sort('#meta+category')
+# Read the attribute categories
+category_data = hxl.data(ATTRIBUTE_CATEGORIES_URL).sort('#meta+category')
 for row in category_data:
-    hashtag_categories.append(row)
+    attribute_category_titles.add(row.get('#meta+category'))
+    attribute_categories.append(row)
 
 # Read the HXL attribute definitions
 attribute_data = hxl.data(ATTRIBUTES_URL).with_rows(['#status=Released', '#status=Pre-release'])
 for row in attribute_data:
     process_attribute_def(row)
 
-# Read the attribute categories
-category_data = hxl.data(ATTRIBUTE_CATEGORIES_URL).sort('#meta+category')
-for row in category_data:
-    attribute_categories.append(row)
 
 # Generate the output
 template = env.get_template('dictionary.html')

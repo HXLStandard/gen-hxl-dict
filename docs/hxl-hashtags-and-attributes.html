@@ -1957,15 +1957,17 @@
         
         <li><a href="#sadd">2.1. Sex- and-age disaggregation (SADD) attributes</a></li>
         
-        <li><a href="#classification">2.2. Classification attributes</a></li>
+        <li><a href="#orgs">2.2. Organisation-type attributes</a></li>
         
-        <li><a href="#geo">2.3. Geographical attributes</a></li>
+        <li><a href="#classification">2.3. Classification attributes</a></li>
         
-        <li><a href="#date">2.4. Date attributes</a></li>
+        <li><a href="#geo">2.4. Geographical attributes</a></li>
         
-        <li><a href="#impact">2.5. Impact attributes</a></li>
+        <li><a href="#date">2.5. Date attributes</a></li>
         
-        <li><a href="#general">2.6. General attributes</a></li>
+        <li><a href="#impact">2.6. Impact attributes</a></li>
+        
+        <li><a href="#general">2.7. General attributes</a></li>
         
       </ul>
       
@@ -2586,9 +2588,51 @@
         </dl>
       </section>
       
-      <section id="classification">
-        <h2>2.2. Classification attributes</h2>
+      <section id="orgs">
+        <h2>2.2. Organisation-type attributes</h2>
         <dl>
+          
+          
+          <dt id="att_funder">+funder</dt>
+          <dd>
+            <p>Funding org/agency (e.g. donor).</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_org">#org</a></td>
+                
+                <td>An organisation contributing to a humanitarian emergency response, e.g. a local government, community-based organisation, NGO, agency, donor, or law-enforcement or military unit. Use #group for organisations that are not part of the emergency response (e.g. a paramilitary group).</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_impl">+impl</dt>
+          <dd>
+            <p>Implementing partner.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_org">#org</a></td>
+                
+                <td>An organisation contributing to a humanitarian emergency response, e.g. a local government, community-based organisation, NGO, agency, donor, or law-enforcement or military unit. Use #group for organisations that are not part of the emergency response (e.g. a paramilitary group).</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
           
           
           <dt id="att_prog">+prog</dt>
@@ -2614,29 +2658,1297 @@
         </dl>
       </section>
       
-      <section id="geo">
-        <h2>2.3. Geographical attributes</h2>
+      <section id="classification">
+        <h2>2.3. Classification attributes</h2>
         <dl>
+          
+          
+          <dt id="att_code">+code</dt>
+          <dd>
+            <p>A unique, machine-readable code.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_activity">#activity</a></td>
+                
+                <td>Programme, project, or other activity description</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_adm1">#adm1</a></td>
+                
+                <td>Top-level subnational administrative area.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_adm2">#adm2</a></td>
+                
+                <td>Second-level subnational administrative area.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_adm3">#adm3</a></td>
+                
+                <td>Third-level subnational administrative area (e.g. a subdistrict in Afghanistan).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_adm4">#adm4</a></td>
+                
+                <td>Fourth-level subnational administrative area (e.g. a barangay in the Philippines).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_adm5">#adm5</a></td>
+                
+                <td>Fifth-level subnational administrative area (e.g. a ward of a city).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_beneficiary">#beneficiary</a></td>
+                
+                <td>Beneficiary information.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_cause">#cause</a></td>
+                
+                <td>The cause of an event.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_country">#country</a></td>
+                
+                <td>Country (often left implied in a dataset).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_crisis">#crisis</a></td>
+                
+                <td>A humanitarian emergency. For the values under #crisis+code, the GLIDE number is recommended.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_currency">#currency</a></td>
+                
+                <td>Name or ISO 4217 currency code for all financial #value cells in the row (e.g. &#34;EUR&#34;).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_impact">#impact</a></td>
+                
+                <td>The impact of a crisis on a group or other entity.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_indicator">#indicator</a></td>
+                
+                <td>A formal indicator being tracked.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_loc">#loc</a></td>
+                
+                <td>Any point location, such as a village, camp, or clinic.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_need">#need</a></td>
+                
+                <td>A(n) (unfulfilled) need for an affected person, household, group, or population.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_org">#org</a></td>
+                
+                <td>An organisation contributing to a humanitarian emergency response, e.g. a local government, community-based organisation, NGO, agency, donor, or law-enforcement or military unit. Use #group for organisations that are not part of the emergency response (e.g. a paramilitary group).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_output">#output</a></td>
+                
+                <td>An output indicator (e.g. “number of water-purification kits distributed”).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_region">#region</a></td>
+                
+                <td>Supra- or cross-national region (e.g. Sahel, Horn of Africa, Caribbean).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_sector">#sector</a></td>
+                
+                <td>A humanitarian cluster or sector. For a formal cluster, use with the +cluster attribute (#sector+cluster).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_service">#service</a></td>
+                
+                <td>A service used or needed by an affected person, household, group, or population.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_severity">#severity</a></td>
+                
+                <td>The severity of an event.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_subsector">#subsector</a></td>
+                
+                <td>A humanitarian subsector.</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_type">+type</dt>
+          <dd>
+            <p>Types or categories.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_activity">#activity</a></td>
+                
+                <td>Programme, project, or other activity description</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_beneficiary">#beneficiary</a></td>
+                
+                <td>Beneficiary information.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_capacity">#capacity</a></td>
+                
+                <td>The response capacity of the entity being described (e.g. &#34;25 beds&#34;).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_cause">#cause</a></td>
+                
+                <td>The cause of an event.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_crisis">#crisis</a></td>
+                
+                <td>A humanitarian emergency. For the values under #crisis+code, the GLIDE number is recommended.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_impact">#impact</a></td>
+                
+                <td>The impact of a crisis on a group or other entity.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_indicator">#indicator</a></td>
+                
+                <td>A formal indicator being tracked.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_loc">#loc</a></td>
+                
+                <td>Any point location, such as a village, camp, or clinic.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_operations">#operations</a></td>
+                
+                <td>Information that affects humanitarian operations, such as a restriction on movement or road closure.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_org">#org</a></td>
+                
+                <td>An organisation contributing to a humanitarian emergency response, e.g. a local government, community-based organisation, NGO, agency, donor, or law-enforcement or military unit. Use #group for organisations that are not part of the emergency response (e.g. a paramilitary group).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_output">#output</a></td>
+                
+                <td>An output indicator (e.g. “number of water-purification kits distributed”).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_sector">#sector</a></td>
+                
+                <td>A humanitarian cluster or sector. For a formal cluster, use with the +cluster attribute (#sector+cluster).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_severity">#severity</a></td>
+                
+                <td>The severity of an event.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_subsector">#subsector</a></td>
+                
+                <td>A humanitarian subsector.</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+        </dl>
+      </section>
+      
+      <section id="geo">
+        <h2>2.4. Geographical attributes</h2>
+        <dl>
+          
+          
+          <dt id="att_bounds">+bounds</dt>
+          <dd>
+            <p>Boundary data (e.g. inline GeoJSON).</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_geo">#geo</a></td>
+                
+                <td>Geodetic geometry information (points, lines, shapes). Use for latitude and longitude, as well as bounds information.</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_coord">+coord</dt>
+          <dd>
+            <p>Geodetic coordinates (lat+lon together).</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_geo">#geo</a></td>
+                
+                <td>Geodetic geometry information (points, lines, shapes). Use for latitude and longitude, as well as bounds information.</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_dest">+dest</dt>
+          <dd>
+            <p>Place of destination (intended or actual).</p>
+            <p><i>Status:</i> Pre-release (1.1)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_adm1">#adm1</a></td>
+                
+                <td>Top-level subnational administrative area.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_adm2">#adm2</a></td>
+                
+                <td>Second-level subnational administrative area.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_adm3">#adm3</a></td>
+                
+                <td>Third-level subnational administrative area (e.g. a subdistrict in Afghanistan).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_adm4">#adm4</a></td>
+                
+                <td>Fourth-level subnational administrative area (e.g. a barangay in the Philippines).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_adm5">#adm5</a></td>
+                
+                <td>Fifth-level subnational administrative area (e.g. a ward of a city).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_country">#country</a></td>
+                
+                <td>Country (often left implied in a dataset).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_loc">#loc</a></td>
+                
+                <td>Any point location, such as a village, camp, or clinic.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_region">#region</a></td>
+                
+                <td>Supra- or cross-national region (e.g. Sahel, Horn of Africa, Caribbean).</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_elevation">+elevation</dt>
+          <dd>
+            <p>Elevation above sea level (usually metres).</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_geo">#geo</a></td>
+                
+                <td>Geodetic geometry information (points, lines, shapes). Use for latitude and longitude, as well as bounds information.</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_lat">+lat</dt>
+          <dd>
+            <p>Latitude (decimal degrees preferred).</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_geo">#geo</a></td>
+                
+                <td>Geodetic geometry information (points, lines, shapes). Use for latitude and longitude, as well as bounds information.</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_lon">+lon</dt>
+          <dd>
+            <p>Longitude (decimal degrees preferred).</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_geo">#geo</a></td>
+                
+                <td>Geodetic geometry information (points, lines, shapes). Use for latitude and longitude, as well as bounds information.</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_origin">+origin</dt>
+          <dd>
+            <p>Place of origin (intended or actual).</p>
+            <p><i>Status:</i> Pre-release (1.1)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_adm1">#adm1</a></td>
+                
+                <td>Top-level subnational administrative area.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_adm2">#adm2</a></td>
+                
+                <td>Second-level subnational administrative area.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_adm3">#adm3</a></td>
+                
+                <td>Third-level subnational administrative area (e.g. a subdistrict in Afghanistan).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_adm4">#adm4</a></td>
+                
+                <td>Fourth-level subnational administrative area (e.g. a barangay in the Philippines).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_adm5">#adm5</a></td>
+                
+                <td>Fifth-level subnational administrative area (e.g. a ward of a city).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_country">#country</a></td>
+                
+                <td>Country (often left implied in a dataset).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_loc">#loc</a></td>
+                
+                <td>Any point location, such as a village, camp, or clinic.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_region">#region</a></td>
+                
+                <td>Supra- or cross-national region (e.g. Sahel, Horn of Africa, Caribbean).</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
           
         </dl>
       </section>
       
       <section id="date">
-        <h2>2.4. Date attributes</h2>
+        <h2>2.5. Date attributes</h2>
         <dl>
+          
+          
+          <dt id="att_approved">+approved</dt>
+          <dd>
+            <p>Date or time when something was approved.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_date">#date</a></td>
+                
+                <td>Date related to the data in the record applies. Preferred format is ISO 8610 (e.g. “2015-06-01”, “2015-Q1”, etc.)</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_canceled">+canceled</dt>
+          <dd>
+            <p>Date or time when something (e.g. an #activity) was canceled.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_date">#date</a></td>
+                
+                <td>Date related to the data in the record applies. Preferred format is ISO 8610 (e.g. “2015-06-01”, “2015-Q1”, etc.)</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_converted">+converted</dt>
+          <dd>
+            <p>Date or time used for converting a monetary value to another currency.</p>
+            <p><i>Status:</i> Pre-release (1.1)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_date">#date</a></td>
+                
+                <td>Date related to the data in the record applies. Preferred format is ISO 8610 (e.g. “2015-06-01”, “2015-Q1”, etc.)</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_end">+end</dt>
+          <dd>
+            <p>Date or time when something finished or will finish.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_date">#date</a></td>
+                
+                <td>Date related to the data in the record applies. Preferred format is ISO 8610 (e.g. “2015-06-01”, “2015-Q1”, etc.)</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_occurred">+occurred</dt>
+          <dd>
+            <p>Date or time when something took place.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_date">#date</a></td>
+                
+                <td>Date related to the data in the record applies. Preferred format is ISO 8610 (e.g. “2015-06-01”, “2015-Q1”, etc.)</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_reported">+reported</dt>
+          <dd>
+            <p>Date or time when something was reported.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_date">#date</a></td>
+                
+                <td>Date related to the data in the record applies. Preferred format is ISO 8610 (e.g. “2015-06-01”, “2015-Q1”, etc.)</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_start">+start</dt>
+          <dd>
+            <p>Date or time when something started or will start.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_date">#date</a></td>
+                
+                <td>Date related to the data in the record applies. Preferred format is ISO 8610 (e.g. “2015-06-01”, “2015-Q1”, etc.)</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
           
         </dl>
       </section>
       
       <section id="impact">
-        <h2>2.5. Impact attributes</h2>
+        <h2>2.6. Impact attributes</h2>
         <dl>
+          
+          
+          <dt id="att_abducted">+abducted</dt>
+          <dd>
+            <p>Abducted people.</p>
+            <p><i>Status:</i> Pre-release (1.1)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_affected">#affected</a></td>
+                
+                <td>Number of people or households affected by an emergency.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_inneed">#inneed</a></td>
+                
+                <td>Number of people or households in need of assistance.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_population">#population</a></td>
+                
+                <td>Population characteristics.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_reached">#reached</a></td>
+                
+                <td>Number of people or households reached with assistance.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_respondee">#respondee</a></td>
+                
+                <td>Descriptive information about a single respondee (person, household, etc.) for survey-style data.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_targeted">#targeted</a></td>
+                
+                <td>Number of people or households targeted for assistance</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_displaced">+displaced</dt>
+          <dd>
+            <p>Displaced people or households.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_affected">#affected</a></td>
+                
+                <td>Number of people or households affected by an emergency.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_inneed">#inneed</a></td>
+                
+                <td>Number of people or households in need of assistance.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_population">#population</a></td>
+                
+                <td>Population characteristics.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_reached">#reached</a></td>
+                
+                <td>Number of people or households reached with assistance.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_respondee">#respondee</a></td>
+                
+                <td>Descriptive information about a single respondee (person, household, etc.) for survey-style data.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_targeted">#targeted</a></td>
+                
+                <td>Number of people or households targeted for assistance</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_idps">+idps</dt>
+          <dd>
+            <p>Internally-displaced people or households.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_affected">#affected</a></td>
+                
+                <td>Number of people or households affected by an emergency.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_inneed">#inneed</a></td>
+                
+                <td>Number of people or households in need of assistance.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_population">#population</a></td>
+                
+                <td>Population characteristics.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_reached">#reached</a></td>
+                
+                <td>Number of people or households reached with assistance.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_respondee">#respondee</a></td>
+                
+                <td>Descriptive information about a single respondee (person, household, etc.) for survey-style data.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_targeted">#targeted</a></td>
+                
+                <td>Number of people or households targeted for assistance</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_incamp">+incamp</dt>
+          <dd>
+            <p>Located in camps.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_affected">#affected</a></td>
+                
+                <td>Number of people or households affected by an emergency.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_inneed">#inneed</a></td>
+                
+                <td>Number of people or households in need of assistance.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_population">#population</a></td>
+                
+                <td>Population characteristics.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_reached">#reached</a></td>
+                
+                <td>Number of people or households reached with assistance.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_respondee">#respondee</a></td>
+                
+                <td>Descriptive information about a single respondee (person, household, etc.) for survey-style data.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_targeted">#targeted</a></td>
+                
+                <td>Number of people or households targeted for assistance</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_infected">+infected</dt>
+          <dd>
+            <p>People infected with a disease.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_affected">#affected</a></td>
+                
+                <td>Number of people or households affected by an emergency.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_inneed">#inneed</a></td>
+                
+                <td>Number of people or households in need of assistance.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_population">#population</a></td>
+                
+                <td>Population characteristics.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_reached">#reached</a></td>
+                
+                <td>Number of people or households reached with assistance.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_respondee">#respondee</a></td>
+                
+                <td>Descriptive information about a single respondee (person, household, etc.) for survey-style data.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_targeted">#targeted</a></td>
+                
+                <td>Number of people or households targeted for assistance</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_injured">+injured</dt>
+          <dd>
+            <p>People injured.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_affected">#affected</a></td>
+                
+                <td>Number of people or households affected by an emergency.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_inneed">#inneed</a></td>
+                
+                <td>Number of people or households in need of assistance.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_population">#population</a></td>
+                
+                <td>Population characteristics.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_reached">#reached</a></td>
+                
+                <td>Number of people or households reached with assistance.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_respondee">#respondee</a></td>
+                
+                <td>Descriptive information about a single respondee (person, household, etc.) for survey-style data.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_targeted">#targeted</a></td>
+                
+                <td>Number of people or households targeted for assistance</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_killed">+killed</dt>
+          <dd>
+            <p>People killed.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_affected">#affected</a></td>
+                
+                <td>Number of people or households affected by an emergency.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_inneed">#inneed</a></td>
+                
+                <td>Number of people or households in need of assistance.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_population">#population</a></td>
+                
+                <td>Population characteristics.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_reached">#reached</a></td>
+                
+                <td>Number of people or households reached with assistance.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_targeted">#targeted</a></td>
+                
+                <td>Number of people or households targeted for assistance</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_noncamp">+noncamp</dt>
+          <dd>
+            <p>Not located in camps.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_affected">#affected</a></td>
+                
+                <td>Number of people or households affected by an emergency.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_inneed">#inneed</a></td>
+                
+                <td>Number of people or households in need of assistance.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_population">#population</a></td>
+                
+                <td>Population characteristics.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_reached">#reached</a></td>
+                
+                <td>Number of people or households reached with assistance.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_respondee">#respondee</a></td>
+                
+                <td>Descriptive information about a single respondee (person, household, etc.) for survey-style data.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_targeted">#targeted</a></td>
+                
+                <td>Number of people or households targeted for assistance</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_refugees">+refugees</dt>
+          <dd>
+            <p>Refugee people or households.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_affected">#affected</a></td>
+                
+                <td>Number of people or households affected by an emergency.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_inneed">#inneed</a></td>
+                
+                <td>Number of people or households in need of assistance.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_population">#population</a></td>
+                
+                <td>Population characteristics.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_reached">#reached</a></td>
+                
+                <td>Number of people or households reached with assistance.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_respondee">#respondee</a></td>
+                
+                <td>Descriptive information about a single respondee (person, household, etc.) for survey-style data.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_targeted">#targeted</a></td>
+                
+                <td>Number of people or households targeted for assistance</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
           
         </dl>
       </section>
       
       <section id="general">
-        <h2>2.6. General attributes</h2>
+        <h2>2.7. General attributes</h2>
         <dl>
           
           
@@ -2661,6 +3973,216 @@
           </dd>
           
           
+          <dt id="att_label">+label</dt>
+          <dd>
+            <p>Text labels (for a table or chart).</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+          </dd>
+          
+          
+          <dt id="att_name">+name</dt>
+          <dd>
+            <p>Human-readable name, title, or label.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_activity">#activity</a></td>
+                
+                <td>Programme, project, or other activity description</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_adm1">#adm1</a></td>
+                
+                <td>Top-level subnational administrative area.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_adm2">#adm2</a></td>
+                
+                <td>Second-level subnational administrative area.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_adm3">#adm3</a></td>
+                
+                <td>Third-level subnational administrative area (e.g. a subdistrict in Afghanistan).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_adm4">#adm4</a></td>
+                
+                <td>Fourth-level subnational administrative area (e.g. a barangay in the Philippines).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_adm5">#adm5</a></td>
+                
+                <td>Fifth-level subnational administrative area (e.g. a ward of a city).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_beneficiary">#beneficiary</a></td>
+                
+                <td>Beneficiary information.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_cause">#cause</a></td>
+                
+                <td>The cause of an event.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_country">#country</a></td>
+                
+                <td>Country (often left implied in a dataset).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_crisis">#crisis</a></td>
+                
+                <td>A humanitarian emergency. For the values under #crisis+code, the GLIDE number is recommended.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_impact">#impact</a></td>
+                
+                <td>The impact of a crisis on a group or other entity.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_indicator">#indicator</a></td>
+                
+                <td>A formal indicator being tracked.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_loc">#loc</a></td>
+                
+                <td>Any point location, such as a village, camp, or clinic.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_need">#need</a></td>
+                
+                <td>A(n) (unfulfilled) need for an affected person, household, group, or population.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_org">#org</a></td>
+                
+                <td>An organisation contributing to a humanitarian emergency response, e.g. a local government, community-based organisation, NGO, agency, donor, or law-enforcement or military unit. Use #group for organisations that are not part of the emergency response (e.g. a paramilitary group).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_output">#output</a></td>
+                
+                <td>An output indicator (e.g. “number of water-purification kits distributed”).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_region">#region</a></td>
+                
+                <td>Supra- or cross-national region (e.g. Sahel, Horn of Africa, Caribbean).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_sector">#sector</a></td>
+                
+                <td>A humanitarian cluster or sector. For a formal cluster, use with the +cluster attribute (#sector+cluster).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_service">#service</a></td>
+                
+                <td>A service used or needed by an affected person, household, group, or population.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_severity">#severity</a></td>
+                
+                <td>The severity of an event.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_subsector">#subsector</a></td>
+                
+                <td>A humanitarian subsector.</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_num">+num</dt>
+          <dd>
+            <p>Numeric information.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_indicator">#indicator</a></td>
+                
+                <td>A formal indicator being tracked.</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
           <dt id="att_phone">+phone</dt>
           <dd>
             <p>Phone number.</p>
@@ -2674,6 +4196,101 @@
                 <td><a href="#tag_contact">#contact</a></td>
                 
                 <td>Contact information for the subject of a data record (e.g. an activity).</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_source">+source</dt>
+          <dd>
+            <p>Information source.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_meta">#meta</a></td>
+                
+                <td>Metadata about a row.</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_text">+text</dt>
+          <dd>
+            <p>Free-form narrative text.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_indicator">#indicator</a></td>
+                
+                <td>A formal indicator being tracked.</td>
+                
+              </tr>
+              
+            </table>
+            
+          </dd>
+          
+          
+          <dt id="att_url">+url</dt>
+          <dd>
+            <p>Web links.</p>
+            <p><i>Status:</i> Released (1.0)</p>
+            
+            <p><i>Associated hashtags:</i></p>
+            <table border="border">
+              
+              
+              <tr>
+                <td><a href="#tag_activity">#activity</a></td>
+                
+                <td>Programme, project, or other activity description</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_contact">#contact</a></td>
+                
+                <td>Contact information for the subject of a data record (e.g. an activity).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_meta">#meta</a></td>
+                
+                <td>Metadata about a row.</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_org">#org</a></td>
+                
+                <td>An organisation contributing to a humanitarian emergency response, e.g. a local government, community-based organisation, NGO, agency, donor, or law-enforcement or military unit. Use #group for organisations that are not part of the emergency response (e.g. a paramilitary group).</td>
+                
+              </tr>
+              
+              
+              <tr>
+                <td><a href="#tag_service">#service</a></td>
+                
+                <td>A service used or needed by an affected person, household, group, or population.</td>
                 
               </tr>
               
