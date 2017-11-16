@@ -24,7 +24,38 @@
   </head>
   <body>
     <h1>HXL hashtags and attributes</h1>
-    <p>TODO</p>
+    <p>
+      <i>Release 1.1beta, 20??-??-?? (<a
+      href="">permalink</a>, <a
+      href="http://hxlstandard.org/standard/1_0final/dictionary/">previous
+      version</a>)</i>
+    </p>
+    <p>
+      <i>(See <a
+      href="http://hxlstandard.org/standard">hxlstandard.org/standard</a>
+      for a list of all parts of the HXL standard.)</i>
+    </p>
+    <p>
+      This document suggests some basic hashtags for the <a
+      href="http://hxlstandard.org">Humanitarian Exchange Language</a>
+      (HXL). You add these tags in a row after the last header row in
+      a spreadsheet, then include the spreadsheet data afterwards. For
+      more information about using HXL hashtags and attributes, please
+      see <cite><a
+      href="http://hxlstandard.org/standard/tagging/">HXL
+      tagging conventions.</a></cite>
+    </p>
+    <p>
+      You can make up your own hashtags like <i>#x_toxicity</i> if you
+      cannot find what you need here: see <cite><a
+      href="http://hxlstandard.org/standard/1_0final/tagging/#extensions">Creating
+      extension tags</a></cite> for more information.
+    </p>
+    <ol>
+      <li><a href="#hashtags">Core HXL hashtags</a></li>
+      <li><a href="#attributes">Suggested attributes</a></li>
+      <li><a href="#changes">Changes from previous versions</a></li>
+    </ol>
     <section id="hashtags">
       <h2>1. Core HXL hashtags</h2>
       <p>
@@ -49,7 +80,7 @@
           <dt id="{{ hashtag | replace('#', 'tag_') }}">{{ hashtag }}</dt>
           <dd>
             <p>{{ def.get('#description') }}</p>
-            <p><i>Status:</i> {{ def.get('#status') }} (since {{def.get('#meta +release') }})</p>
+            <p><i>Status:</i> {{ def.get('#status') }} ({{def.get('#meta +release') }})</p>
             {% if def.get('#valid_vocab +default') %}
             <p><i>Default vocabulary:</i> {{ def.get('#valid_vocab +default') }}</p>
             {% endif %}
@@ -73,16 +104,30 @@
     </section>
     <section id="attributes">
       <h2>2. Core HXL attributes</h2>
-      {% for category in attributes_by_category | sort %}
-      <section>
-        <h2>{{ category }}</h2>
+      <p>
+        This section contains some suggested attributes for HXL
+        hashtags, to add extra information to hashtags. You are free
+        to use whatever attributes you wish, as long as they meet the
+        <a
+        href="http://hxlstandard.org/standard/1_0final/tagging/#attributes">syntactic
+        requirements</a>; however, using the suggested attributes here
+        will help to make your data more interoperable.
+      </p>
+      <ul>
+        {% for category in attribute_categories %}
+        <li><a href="#{{ category.get('#meta+id') }}">{{ category.get('#meta+category') }}</a></li>
+        {% endfor %}
+      </ul>
+      {% for category in attribute_categories %}
+      <section id="{{ category.get('#meta+id') }}">
+        <h2>{{ category.get('#meta+category') }}</h2>
         <dl>
-          {% for attribute in attributes_by_category[category] | sort %}
+          {% for attribute in attributes_by_category[category.get('#meta+category')] %}
           {% set def = attribute_defs[attribute] %}
           <dt id="{{ attribute | replace('+', 'att_')  }}">{{ attribute }}</dt>
           <dd>
             <p>{{ def.get('#description') }}</p>
-            <p><i>Status:</i> {{ def.get('#status') }} (since {{def.get('#meta +release') }})</p>
+            <p><i>Status:</i> {{ def.get('#status') }} ({{def.get('#meta +release') }})</p>
             {% if attribute_hashtag_map[attribute] %}
             <p><i>Associated hashtags:</i></p>
             <table border="border">
@@ -102,6 +147,30 @@
         </dl>
       </section>
       {% endfor %}
+    </section>
+    <section id="changes">
+      <h1>Changes from previous versions</h1>
+      <p>
+        Changes from <a
+        href="http://hxlstandard.org/standards/1_0final/dictionary/">HXL
+        1.0 final</a> to HXL 1.1 beta:
+      </p>
+      <ul>
+      </ul>
+      <p>
+        Changes from <a
+        href="http://hxlstandard.org/standards/1_0beta/dictionary/">HXL
+        1.0 beta</a> final to HXL 1.1 final:
+      </p>
+      <ul>
+      </ul>
+      <p>
+        Changes from <a
+        href="http://hxlstandard.org/standards/1_0alpha/dictionary/">HXL
+        1.0 alpha</a> to HXL 1.0 beta:
+      </p>
+      <ul>
+      </ul>
     </section>
   </body>
 </html>
