@@ -13,5 +13,11 @@ Dictionary](http://hxlstandard.org/standard/dictionary/), which is
 part of the HXL standard. This script is in use beginning with HXL
 version 1.1.
 
+Requires Python 3.
 
-2017-11-13
+## Usage
+
+  python gen-hxl-dict.py > docs/hxl-hashtags-and-attributes.html
+
+
+2017-11-16
