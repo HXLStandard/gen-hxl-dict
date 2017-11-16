@@ -27,11 +27,24 @@
     <p>TODO</p>
     <section id="hashtags">
       <h2>1. Core HXL hashtags</h2>
-      {% for category in hashtags_by_category | sort %}
+      <p>
+        <i>(A cheatsheet of these hashtags is also available on a <a
+        href="http://hxlstandard.org/postcards">postcard</a>.)</i>
+      </p> 
+      <p>
+        This section lists the <b>core HXL hashtags</b> grouped into
+        the following topic areas:
+      </p>
+      <ul>
+        {% for category in hashtag_categories %}
+        <li><a href="#{{ category.get('#meta+id') }}">{{ category.get('#meta+category') }}</a></li>
+        {% endfor %}
+      </ul>
+      {% for category in hashtag_categories %}
       <section>
-        <h2>{{ category }}</h2>
+        <h2 id="{{ category.get('#meta+id') }}">{{ category.get('#meta+category') }}</h2>
         <dl>
-          {% for hashtag in hashtags_by_category[category] | sort %}
+          {% for hashtag in hashtags_by_category[category.get('#meta+category')] | sort%}
           {% set def = hashtag_defs[hashtag] %}
           <dt id="{{ hashtag | replace('#', 'tag_') }}">{{ hashtag }}</dt>
           <dd>
