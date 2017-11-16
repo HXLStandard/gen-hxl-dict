@@ -156,6 +156,18 @@
         1.0 final</a> to HXL 1.1 beta:
       </p>
       <ul>
+        <li>
+          Added new core hashtags #access, #currency, #item,
+          #modality, #need, #respondee, #service, and #value.
+        </li>
+        <li>
+          Added suggested attributes +abducted, +converted, +dest,
+          +hh, +ind, and +origin.
+        </li>
+        <li>
+          Deprecated two-letter language attributes like <i>+fr</i>
+          for French (replaced with +i_fr).
+        </li>
       </ul>
       <p>
         Changes from <a
@@ -163,6 +175,51 @@
         1.0 beta</a> final to HXL 1.1 final:
       </p>
       <ul>
+        <li>
+          Added the new #event and #group hashtags.
+        </li>
+        <li>
+          No longer list data types for hashtags (since the attributes
+          can change the suggested type).
+        </li>
+        <li>
+          Some clarifications and examples in descriptions.
+        </li>
+        <li>
+          Minor changes to suggested attributes (non-normative):
+          <ul>
+            <li>
+              Suggest the use of the +text or +name attributes (as
+              appropriate) when hashtags can sometimes refer to
+              human-readable descriptions (e.g. #sector+name vs
+              +sector+code).
+            </li>
+            <li>
+              Suggest GeoJSON format for the content of #geo+bounds
+            </li>
+            <li>
+              Suggest +type as a possible attribute for #affected
+            </li>
+            <li>
+              Suggest impact attributes for #beneficiary, #inneed,
+              #population, #reached, and #targeted
+            </li>
+            <li>
+              Suggest language attributes for #contact, #indicator,
+              and #operations
+            </li>
+            <li>
+              Suggest +occurred as a possible attribute for #date
+            </li>
+            <li>
+              Suggest +reliability, +count, +sum, +average, +min, and
+              +max as additional possible attributes for #meta
+            </li>
+            <li>
+              Added +label.
+            </li>
+          </ul>
+        </li>
       </ul>
       <p>
         Changes from <a
@@ -170,6 +227,32 @@
         1.0 alpha</a> to HXL 1.0 beta:
       </p>
       <ul>
+        <li>
+          Hashtags removed: #activity_id, #adm, #adm1_id, #adm2_id,
+          #adm3_id, #adm4_id, #adm5_id, #aff_num, #age, #age_id,
+          #agesex, #agesex_id, #beneficiary_id, #country_id,
+          #crisis_id, #crisis_lnk, #data_lnk, #datatype, #datatype_id,
+          #delivered_num, #email, #females_num, #from_date, #funder,
+          #funder_id, #households_num, #idp_num, #impact1,
+          #impact1_id, #impact2, #impact2_id, #impact3, #impact3_id,
+          #impl, #impl_id, #injured_num, #inneed_num, #lat_deg,
+          #loc_id, #loctype, #loctype_id, #lon_deg, #males_num,
+          #method, #method_id, #method_lnk, #name, #org_id, #origin,
+          #origin_id, #output_id, #people_num, #period_date, #phone,
+          #prog, #prog_id, #reached_num, #refugee_num, #region_id,
+          #report_date, #sector_id, #sex, #sex_id, #shelter1,
+          #shelter1_id, #shelter2, #shelter2_id, #source, #source_id,
+          #status_id, #subsector_id, #targeted_num, and #to_date
+        </li>
+        <li>
+          Hashtags added: #affected, #capacity, #cause, #contact,
+          #date, #description, #geo, #impact, #indicator, #inneed,
+          #meta, #operations, #output, #population, #reached,
+          #severity, and #targeted
+        </li>
+        <li>
+          Added hashtag attributes to the standard.
+        </li>
       </ul>
     </section>
   </body>
