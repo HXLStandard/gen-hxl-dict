@@ -1,13 +1,18 @@
+#!/usr/bin/python3
+"""Generate the HXL hashtag and attribute dictionary from the master schema.
+
+Requires Python 3.2 or higher.
+
+Usage:
+
+  python gen-hxl-dict.py > output.html
+"""
+  
 import hxl, html, jinja2, re, sys
 
+# Die if not at least Python 3.2
 if sys.version_info < (3, 2):
     raise SystemExit("gen-hxl-dict requires at least Python 3.2")
-
-# Set up Jinja2 template environment
-env = jinja2.Environment(
-    loader=jinja2.PackageLoader('gen-hxl-dict', 'templates'),
-    autoescape=jinja2.select_autoescape(['html', 'xml'])
-)
 
 #
 # Constants
@@ -62,6 +67,10 @@ attribute_hashtag_map = {}
 #
 # Functions
 #
+
+def info(message):
+    """Print a routine message to stderr."""
+    print("[I] " + message, file=sys.stderr)
 
 def alert (message):
     """Print a warning to stderr."""
@@ -130,46 +139,59 @@ def process_attribute_def (row):
             attribute_hashtag_map[attribute] = set()
         attribute_hashtag_map[attribute].add(hashtag)
 
+        
+def run(hashtag_categories_url, hashtags_url, attribute_categories_url, attributes_url):
+    """Run the processes to generate the HTML dictionary."""
+
+    # Set up Jinja2 template environment for rendering HTML
+    env = jinja2.Environment(
+        loader=jinja2.PackageLoader('gen-hxl-dict', 'templates'),
+        autoescape=jinja2.select_autoescape(['html', 'xml'])
+    )
+
+    info("Reading hashtag category definitions from {}...".format(hashtag_categories_url))
+    category_data = hxl.data(hashtag_categories_url).sort('#meta+category')
+    for row in category_data:
+        hashtag_category_titles.add(row.get('#meta+category'))
+        hashtag_categories.append(row)
+
+    info("Reading hashtag definitions from {}...".format(hashtags_url))
+    hashtag_data = hxl.data(hashtags_url).with_rows(['#status=Released', '#status=Pre-release'])
+    for row in hashtag_data:
+        process_hashtag_def(row)
+
+    info("Reading attribute category definitions from {}...".format(attribute_categories_url))
+    category_data = hxl.data(attribute_categories_url).sort('#meta+category')
+    for row in category_data:
+        attribute_category_titles.add(row.get('#meta+category'))
+        attribute_categories.append(row)
+
+    info("Reading attribute definitions from {}...".format(attributes_url))
+    attribute_data = hxl.data(attributes_url).with_rows(['#status=Released', '#status=Pre-release'])
+    for row in attribute_data:
+        process_attribute_def(row)
+
+    info("Generating output...")
+    template = env.get_template('dictionary.html')
+    print(
+        template.render(
+            hashtag_defs=hashtag_defs,
+            hashtag_categories=hashtag_categories,
+            hashtags_by_category=hashtags_by_category,
+            hashtag_attribute_map=hashtag_attribute_map,
+            attribute_defs=attribute_defs,
+            attribute_categories=attribute_categories,
+            attributes_by_category=attributes_by_category,
+            attribute_hashtag_map=attribute_hashtag_map
+        ))
+
+    info("done.")
+
 #
-# Runtime code
+# If called as a command-line script.
 #
+if __name__ == '__main__':
+   run(HASHTAG_CATEGORIES_URL, HASHTAGS_URL, ATTRIBUTE_CATEGORIES_URL, ATTRIBUTES_URL)
 
-# Read the hashtag categories
-category_data = hxl.data(HASHTAG_CATEGORIES_URL).sort('#meta+category')
-for row in category_data:
-    hashtag_category_titles.add(row.get('#meta+category'))
-    hashtag_categories.append(row)
+# end
 
-# Read the HXL hashtag definitions
-hashtag_data = hxl.data(HASHTAGS_URL).with_rows(['#status=Released', '#status=Pre-release'])
-for row in hashtag_data:
-    process_hashtag_def(row)
-
-# Read the attribute categories
-category_data = hxl.data(ATTRIBUTE_CATEGORIES_URL).sort('#meta+category')
-for row in category_data:
-    attribute_category_titles.add(row.get('#meta+category'))
-    attribute_categories.append(row)
-
-# Read the HXL attribute definitions
-attribute_data = hxl.data(ATTRIBUTES_URL).with_rows(['#status=Released', '#status=Pre-release'])
-for row in attribute_data:
-    process_attribute_def(row)
-
-
-# Generate the output
-template = env.get_template('dictionary.html')
-
-print(
-    template.render(
-        hashtag_defs=hashtag_defs,
-        hashtag_categories=hashtag_categories,
-        hashtags_by_category=hashtags_by_category,
-        hashtag_attribute_map=hashtag_attribute_map,
-        attribute_defs=attribute_defs,
-        attribute_categories=attribute_categories,
-        attributes_by_category=attributes_by_category,
-        attribute_hashtag_map=attribute_hashtag_map
-    ))
-
-sys.exit(0)
