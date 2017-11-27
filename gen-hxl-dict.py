@@ -8,7 +8,7 @@ Usage:
   python gen-hxl-dict.py > output.html
 """
   
-import hxl, html, jinja2, re, sys
+import hxl, html, jinja2, logging, re, sys
 
 # Die if not at least Python 3.2
 if sys.version_info < (3, 2):
@@ -68,14 +68,6 @@ attribute_hashtag_map = {}
 # Functions
 #
 
-def info(message):
-    """Print a routine message to stderr."""
-    print("[I] " + message, file=sys.stderr)
-
-def alert (message):
-    """Print a warning to stderr."""
-    print("[W] " + message, file=sys.stderr)
-
 def process_hashtag_def (row):
     """Process a hashtag definition."""
     hashtag = row.get('#valid_tag')
@@ -83,11 +75,11 @@ def process_hashtag_def (row):
     # Save the hashtag definition
     if hashtag:
         if hashtag in hashtag_defs:
-            alert('Duplicate hashtag: {}').format(hashtag)
+            logging.warning('Duplicate hashtag: {}').format(hashtag)
         else:
             hashtag_defs[hashtag] = row
     else:
-        alert('Missing hashtag in row: {}'.format(str(row)))
+        logging.warning('Missing hashtag in row: {}'.format(str(row)))
         return
 
     # Group hashtags by category
@@ -97,9 +89,9 @@ def process_hashtag_def (row):
             hashtags_by_category[category] = []
         hashtags_by_category[category].append(hashtag)
         if not category in hashtag_category_titles:
-            alert("Unknown hashtag category: {}".format(category))
+            logging.warning("Unknown hashtag category: {}".format(category))
     else:
-        alert('Skipping hashtag (no category): {}'.format(hashtag))
+        logging.warning('Skipping hashtag (no category): {}'.format(hashtag))
 
 def process_attribute_def (row):
     """Process an attribute definition."""
@@ -108,11 +100,11 @@ def process_attribute_def (row):
     # Save the attribute definition
     if attribute:
         if attribute in attribute_defs:
-             alert('Duplicate attribute: {}'.format(attribute))
+             logging.warning('Duplicate attribute: {}'.format(attribute))
         else:
              attribute_defs[attribute] = row
     else:
-        alert('Missing attribute name in row: {}'.format(str(row)))
+        logging.warning('Missing attribute name in row: {}'.format(str(row)))
         return
     
     # Group attribute defs by category
@@ -122,16 +114,16 @@ def process_attribute_def (row):
             attributes_by_category[category] = []
         attributes_by_category[category].append(attribute)
         if not category in attribute_category_titles:
-            alert("Unknown attribute category: {}".format(category))
+            logging.warning("Unknown attribute category: {}".format(category))
     else:
-        alert('Skipping attribute (does not belong to any category): {}'.format(attribute))
+        logging.warning('Skipping attribute (does not belong to any category): {}'.format(attribute))
 
     # Reverse map the associated hashtags
     for hashtag in re.split('\s*,\s*', row.get('#valid_hashtags +list', 0, '')):
         if not hashtag:
             continue
         if not hashtag in hashtag_defs:
-             alert('Attribute {} refers to non-existant hashtag {}'.format(attribute, hashtag))
+             logging.warning('Attribute {} refers to non-existant hashtag {}'.format(attribute, hashtag))
         if not hashtag_attribute_map.get(hashtag):
             hashtag_attribute_map[hashtag] = set()
         hashtag_attribute_map[hashtag].add(attribute)
@@ -143,35 +135,37 @@ def process_attribute_def (row):
 def run(hashtag_categories_url, hashtags_url, attribute_categories_url, attributes_url):
     """Run the processes to generate the HTML dictionary."""
 
+    logging.basicConfig(stream=sys.stderr, level=logging.INFO)
+
     # Set up Jinja2 template environment for rendering HTML
     env = jinja2.Environment(
         loader=jinja2.PackageLoader('gen-hxl-dict', 'templates'),
         autoescape=jinja2.select_autoescape(['html', 'xml'])
     )
 
-    info("Reading hashtag category definitions from {}...".format(hashtag_categories_url))
+    logging.info("Reading hashtag category definitions from {}...".format(hashtag_categories_url))
     category_data = hxl.data(hashtag_categories_url).sort('#meta+category')
     for row in category_data:
         hashtag_category_titles.add(row.get('#meta+category'))
         hashtag_categories.append(row)
 
-    info("Reading hashtag definitions from {}...".format(hashtags_url))
+    logging.info("Reading hashtag definitions from {}...".format(hashtags_url))
     hashtag_data = hxl.data(hashtags_url).with_rows(['#status=Released', '#status=Pre-release'])
     for row in hashtag_data:
         process_hashtag_def(row)
 
-    info("Reading attribute category definitions from {}...".format(attribute_categories_url))
+    logging.info("Reading attribute category definitions from {}...".format(attribute_categories_url))
     category_data = hxl.data(attribute_categories_url).sort('#meta+category')
     for row in category_data:
         attribute_category_titles.add(row.get('#meta+category'))
         attribute_categories.append(row)
 
-    info("Reading attribute definitions from {}...".format(attributes_url))
+    logging.info("Reading attribute definitions from {}...".format(attributes_url))
     attribute_data = hxl.data(attributes_url).with_rows(['#status=Released', '#status=Pre-release'])
     for row in attribute_data:
         process_attribute_def(row)
 
-    info("Generating output...")
+    logging.info("Generating output...")
     template = env.get_template('dictionary.html')
     print(
         template.render(
@@ -184,8 +178,6 @@ def run(hashtag_categories_url, hashtags_url, attribute_categories_url, attribut
             attributes_by_category=attributes_by_category,
             attribute_hashtag_map=attribute_hashtag_map
         ))
-
-    info("done.")
 
 #
 # If called as a command-line script.
