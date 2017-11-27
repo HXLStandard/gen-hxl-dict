@@ -135,8 +135,6 @@ def process_attribute_def (row):
 def run(hashtag_categories_url, hashtags_url, attribute_categories_url, attributes_url):
     """Run the processes to generate the HTML dictionary."""
 
-    logging.basicConfig(stream=sys.stderr, level=logging.INFO)
-
     # Set up Jinja2 template environment for rendering HTML
     env = jinja2.Environment(
         loader=jinja2.PackageLoader('gen-hxl-dict', 'templates'),
@@ -183,7 +181,9 @@ def run(hashtag_categories_url, hashtags_url, attribute_categories_url, attribut
 # If called as a command-line script.
 #
 if __name__ == '__main__':
-   run(HASHTAG_CATEGORIES_URL, HASHTAGS_URL, ATTRIBUTE_CATEGORIES_URL, ATTRIBUTES_URL)
+    # log to STDERR
+    logging.basicConfig(stream=sys.stderr, level=logging.INFO)
+    run(HASHTAG_CATEGORIES_URL, HASHTAGS_URL, ATTRIBUTE_CATEGORIES_URL, ATTRIBUTES_URL)
 
 # end
 
