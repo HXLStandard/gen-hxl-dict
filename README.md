@@ -15,9 +15,22 @@ version 1.1.
 
 Requires Python 3.
 
+## Installation
+
+It's strongly recommended to run this script inside a Python virtual
+environment. To set up a Python 3 custom environment in most Linux
+distros, try
+
+  mkvirtualenv -p /usr/bin/python3 hxl-dict # or whatever you want to call it
+
+To load dependencies before running, try
+
+  workon hxl-dict # or whatever you called your Python virtual environment
+  python setup.py develop
+
 ## Usage
 
   python gen-hxl-dict.py > docs/hxl-hashtags-and-attributes.html
 
 
-2017-11-16
+Last updated 2017-11-27
