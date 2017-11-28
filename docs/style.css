@@ -13,16 +13,39 @@ table {
     border-collapse:collapse;
 }
 
-table.metadata th {
+table.listing th {
     text-align: left;
     vertical-align: top;
     font-weight: normal;
+    font-style: italic;
 }
 
-table.metadata th:after {
+table, tr, th, td {
+    border: 1px solid #cccccc;
+}
+
+table.listing, table.listing tr, table.listing th, table.listing td {
+    border: none;
+}
+
+table.listing th:after {
     content: ":";
 }
 
 td, th {
-    padding: .2em;
+    padding: .5em;
 }
+
+section.hashtag, section.attribute {
+    margin-bottom: 5ex;
+    margin-left: 2em;
+}
+
+section.hashtag h4, section.attribute h4 {
+    margin-left: -2em;
+    max-width: 20em;
+    font-size: 120%;
+    color: #333333;
+    border-bottom: 1px solid #cccccc;
+}
+

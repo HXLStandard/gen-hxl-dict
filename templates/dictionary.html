@@ -6,64 +6,64 @@
     <link rel="stylesheet" href="style.css"/>
   </head>
   <body>
-    <h1>HXL hashtags and attributes</h1>
-    <p>
-      <i>Release 1.1beta, DRAFT 2017-11-28 (<a
-      href="">permalink</a>, <a
-      href="http://hxlstandard.org/standard/1_0final/dictionary/">previous
-      version</a>)</i>
-    </p>
-    <p>
-      <i>(See <a
-      href="http://hxlstandard.org/standard">hxlstandard.org/standard</a>
-      for a list of all parts of the HXL standard.)</i>
-    </p>
-    <p>
-      This document suggests some basic hashtags for the <a
-      href="http://hxlstandard.org">Humanitarian Exchange Language</a>
-      (HXL). You add these tags in a row after the last header row in
-      a spreadsheet, then include the spreadsheet data afterwards. For
-      more information about using HXL hashtags and attributes, please
-      see <cite><a
-      href="http://hxlstandard.org/standard/tagging/">HXL
-      tagging conventions.</a></cite>
-    </p>
-    <p>
-      You can make up your own hashtags like <i>#x_toxicity</i> if you
-      cannot find what you need here: see <cite><a
-      href="http://hxlstandard.org/standard/1_0final/tagging/#extensions">Creating
-      extension tags</a></cite> for more information.
-    </p>
-    <ol>
-      <li><a href="#hashtags">Core HXL hashtags</a></li>
-      <li><a href="#attributes">Suggested attributes</a></li>
-      <li><a href="#changes">Changes from previous versions</a></li>
-    </ol>
-    <section id="hashtags">
-      <h2>1. Core HXL hashtags</h2>
+    <main>
+      <h1>HXL hashtags and attributes</h1>
       <p>
-        <i>(A cheatsheet of these hashtags is also available on a <a
-        href="http://hxlstandard.org/postcards">postcard</a>.)</i>
-      </p> 
-      <p>
-        This section lists the <b>core HXL hashtags</b> grouped into
-        the following topic areas:
+        <i>Release 1.1beta, DRAFT 2017-11-28 (<a
+        href="">permalink</a>, <a
+        href="http://hxlstandard.org/standard/1_0final/dictionary/">previous
+        version</a>)</i>
       </p>
-      <ul>
+      <p>
+        <i>(See <a
+        href="http://hxlstandard.org/standard">hxlstandard.org/standard</a>
+        for a list of all parts of the HXL standard.)</i>
+      </p>
+      <p>
+        This document suggests some basic hashtags for the <a
+        href="http://hxlstandard.org">Humanitarian Exchange Language</a>
+        (HXL). You add these tags in a row after the last header row in
+        a spreadsheet, then include the spreadsheet data afterwards. For
+        more information about using HXL hashtags and attributes, please
+        see <cite><a
+        href="http://hxlstandard.org/standard/tagging/">HXL
+        tagging conventions.</a></cite>
+      </p>
+      <p>
+        You can make up your own hashtags like <i>#x_toxicity</i> if you
+        cannot find what you need here: see <cite><a
+        href="http://hxlstandard.org/standard/1_0final/tagging/#extensions">Creating
+        extension tags</a></cite> for more information.
+      </p>
+      <ol>
+        <li><a href="#hashtags">Core HXL hashtags</a></li>
+        <li><a href="#attributes">Suggested attributes</a></li>
+        <li><a href="#changes">Changes from previous versions</a></li>
+      </ol>
+      <section id="hashtags">
+        <h2>1. Core HXL hashtags</h2>
+        <p>
+          <i>(A cheatsheet of these hashtags is also available on a <a
+          href="http://hxlstandard.org/postcards">postcard</a>.)</i>
+        </p> 
+        <p>
+          This section lists the <b>core HXL hashtags</b> grouped into
+          the following topic areas:
+        </p>
+        <ul>
+          {% for category in hashtag_categories %}
+          <li><a href="#{{ category.get('#meta+id') }}">{{ category.get('#meta+category') }}</a></li>
+          {% endfor %}
+        </ul>
         {% for category in hashtag_categories %}
-        <li><a href="#{{ category.get('#meta+id') }}">{{ category.get('#meta+category') }}</a></li>
-        {% endfor %}
-      </ul>
-      {% for category in hashtag_categories %}
-      <section>
-        <h2 id="{{ category.get('#meta+id') }}">{{ category.get('#meta+category') }}</h2>
-        <dl class="glossary">
+        <section class="category">
+          <h3 id="{{ category.get('#meta+id') }}">{{ category.get('#meta+category') }}</h3>
           {% for hashtag in hashtags_by_category[category.get('#meta+category')] | sort%}
           {% set def = hashtag_defs[hashtag] %}
-          <dt id="{{ hashtag | replace('#', 'tag_') }}">{{ hashtag }}</dt>
-          <dd>
-            <p>{{ def.get('#description') }}</p>
-            <table class="metadata">
+          <section id="{{ hashtag | replace('#', 'tag_') }}" class="hashtag">
+            <h4>{{ hashtag }}</h4>
+            <p class="lede">{{ def.get('#description') }}</p>
+            <table class="listing labels">
               <tr>
                 <th>Status</th>
                 <td>{{ def.get('#status') }} ({{def.get('#meta +release') }})</td>
@@ -80,193 +80,207 @@
                 <td>{{ def.get('#valid_datatype') }}</td>
               </tr>
               {% endif %}
-              {% if def.get('#meta+example+hxl') %}
-              <tr>
-                <th>Example</th>
-                <td>
-                  <code>{{ def.get('#meta+example+hxl') }}</code>
-                  {% if def.get('#meta+example+description+en') %}
-                  <br/>
-                  <i>{{ def.get('#meta+example+description+en') }}</i>
-                  {% endif %}
-                  {% if def.get('#meta+example+value') %}
-                  <br/>
-                  <i>e.g.: {{ def.get('#meta+example+value') }}</i>
-                  {% endif %}
-                </td>
-              </tr>
-              {% endif %}
             </table>
             {% if hashtag_attribute_map[hashtag] %}
-            <p><i>Suggested attributes:</i></p>
-            <table class="cross-refs">
-              {% for attribute in hashtag_attribute_map[hashtag] | sort %}
-              {% set def=attribute_defs[attribute] %}
-              <tr>
-                <td><a href="{{ attribute | replace('+', '#att_') }}">{{ attribute }}</a></td>
-                <td>{{ def.get('#description') }} ()</td>
-              </tr>
-              {% endfor %}
-            </table>
+            <section>
+              <h5>Suggested attributes for <var>{{ hashtag }}</var></h5>
+              <table>
+                {% for attribute in hashtag_attribute_map[hashtag] | sort %}
+                {% set def=attribute_defs[attribute] %}
+                <tr>
+                  <td><var><a href="{{ attribute | replace('+', '#att_') }}">{{ attribute }}</a></var></td>
+                  <td>{{ def.get('#description') }}</td>
+                </tr>
+                {% endfor %}
+              </table>
+            </section>
             {% endif %}
-          </dd>
-          {% endfor %}
-        </dl>
-      </section>
-      {% endfor %}
-    </section>
-    <section id="attributes">
-      <h2>2. Core HXL attributes</h2>
-      <p>
-        This section contains some suggested attributes for HXL
-        hashtags, to add extra information to hashtags. You are free
-        to use whatever attributes you wish, as long as they meet the
-        <a
-            href="http://hxlstandard.org/standard/1_0final/tagging/#attributes">syntactic
-        requirements</a>; however, using the suggested attributes here
-        will help to make your data more interoperable.
-      </p>
-      <ul>
-        {% for category in attribute_categories %}
-        <li><a href="#{{ category.get('#meta+id') }}">{{ category.get('#meta+category') }}</a></li>
-        {% endfor %}
-      </ul>
-      {% for category in attribute_categories %}
-      <section id="{{ category.get('#meta+id') }}">
-        <h2>{{ category.get('#meta+category') }}</h2>
-        <dl>
-          {% for attribute in attributes_by_category[category.get('#meta+category')] %}
-          {% set def = attribute_defs[attribute] %}
-          <dt id="{{ attribute | replace('+', 'att_')  }}">{{ attribute }}</dt>
-          <dd>
-            <p>{{ def.get('#description') }}</p>
-            <p><i>Status:</i> {{ def.get('#status') }} ({{def.get('#meta +release') }})</p>
-            {% if attribute_hashtag_map[attribute] %}
-            <p><i>Associated hashtags:</i></p>
-            <table border="border">
-              {% for hashtag in attribute_hashtag_map[attribute] | sort %}
-              {% set def = hashtag_defs.get(hashtag) %}
-              <tr>
-                <td><a href="{{ hashtag | replace('#', '#tag_') }}">{{ hashtag }}</a></td>
-                {% if def %}
-                <td>{{ def.get('#description') }}</td>
+            {% if def.get('#meta+example+hxl') %}
+            <section>
+              <h5>Example for <var>{{ hashtag }}</var></h5>
+              <table class="listing">
+                <tr>
+                  <th>HXL hashtag spec</th>
+                  <td><b>{{ def.get('#meta+example+hxl') }}</b></td>
+                </tr>
+                {% if def.get('#meta+example+description+en') %}
+                <tr>
+                  <th>Meaning</th>
+                  <td>{{ def.get('#meta+example+description+en') }}</td>
+                </tr>
                 {% endif %}
-              </tr>
-              {% endfor %}
-            </table>
+                {% if def.get('#meta+example+value') %}
+                <tr>
+                  <th>Sample data</th>
+                  <td>{{ def.get('#meta+example+value') }}</td>
+                </tr>
+                {% endif %}
+              </table>
+            </section>
             {% endif %}
-          </dd>
+          </section>
           {% endfor %}
-        </dl>
+        </section>
+        {% endfor %}
       </section>
-      {% endfor %}
-    </section>
-    <section id="changes">
-      <h1>Changes from previous versions</h1>
-      <p>
-        Changes from <a
-        href="http://hxlstandard.org/standards/1_0final/dictionary/">HXL
-        1.0 final</a> to HXL 1.1 beta:
-      </p>
-      <ul>
-        <li>
-          Added new core hashtags #access, #currency, #item,
-          #modality, #need, #respondee, #service, and #value.
-        </li>
-        <li>
-          Added suggested attributes +abducted, +converted, +dest,
-          +hh, +ind, and +origin.
-        </li>
-        <li>
-          Deprecated two-letter language attributes like <i>+fr</i>
-          for French (replaced with +i_fr).
-        </li>
-      </ul>
-      <p>
-        Changes from <a
-        href="http://hxlstandard.org/standards/1_0beta/dictionary/">HXL
-        1.0 beta</a> final to HXL 1.1 final:
-      </p>
-      <ul>
-        <li>
-          Added the new #event and #group hashtags.
-        </li>
-        <li>
-          No longer list data types for hashtags (since the attributes
-          can change the suggested type).
-        </li>
-        <li>
-          Some clarifications and examples in descriptions.
-        </li>
-        <li>
-          Minor changes to suggested attributes (non-normative):
-          <ul>
-            <li>
-              Suggest the use of the +text or +name attributes (as
-              appropriate) when hashtags can sometimes refer to
-              human-readable descriptions (e.g. #sector+name vs
-              +sector+code).
-            </li>
-            <li>
-              Suggest GeoJSON format for the content of #geo+bounds
-            </li>
-            <li>
-              Suggest +type as a possible attribute for #affected
-            </li>
-            <li>
-              Suggest impact attributes for #beneficiary, #inneed,
-              #population, #reached, and #targeted
-            </li>
-            <li>
-              Suggest language attributes for #contact, #indicator,
-              and #operations
-            </li>
-            <li>
-              Suggest +occurred as a possible attribute for #date
-            </li>
-            <li>
-              Suggest +reliability, +count, +sum, +average, +min, and
-              +max as additional possible attributes for #meta
-            </li>
-            <li>
-              Added +label.
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <p>
-        Changes from <a
-        href="http://hxlstandard.org/standards/1_0alpha/dictionary/">HXL
-        1.0 alpha</a> to HXL 1.0 beta:
-      </p>
-      <ul>
-        <li>
-          Hashtags removed: #activity_id, #adm, #adm1_id, #adm2_id,
-          #adm3_id, #adm4_id, #adm5_id, #aff_num, #age, #age_id,
-          #agesex, #agesex_id, #beneficiary_id, #country_id,
-          #crisis_id, #crisis_lnk, #data_lnk, #datatype, #datatype_id,
-          #delivered_num, #email, #females_num, #from_date, #funder,
-          #funder_id, #households_num, #idp_num, #impact1,
-          #impact1_id, #impact2, #impact2_id, #impact3, #impact3_id,
-          #impl, #impl_id, #injured_num, #inneed_num, #lat_deg,
-          #loc_id, #loctype, #loctype_id, #lon_deg, #males_num,
-          #method, #method_id, #method_lnk, #name, #org_id, #origin,
-          #origin_id, #output_id, #people_num, #period_date, #phone,
-          #prog, #prog_id, #reached_num, #refugee_num, #region_id,
-          #report_date, #sector_id, #sex, #sex_id, #shelter1,
-          #shelter1_id, #shelter2, #shelter2_id, #source, #source_id,
-          #status_id, #subsector_id, #targeted_num, and #to_date
-        </li>
-        <li>
-          Hashtags added: #affected, #capacity, #cause, #contact,
-          #date, #description, #geo, #impact, #indicator, #inneed,
-          #meta, #operations, #output, #population, #reached,
-          #severity, and #targeted
-        </li>
-        <li>
-          Added hashtag attributes to the standard.
-        </li>
-      </ul>
-    </section>
+      <section id="attributes">
+        <h2>2. Core HXL attributes</h2>
+        <p>
+          This section contains some suggested attributes for HXL
+          hashtags, to add extra information to hashtags. You are free
+          to use whatever attributes you wish, as long as they meet the
+          <a
+              href="http://hxlstandard.org/standard/1_0final/tagging/#attributes">syntactic
+          requirements</a>; however, using the suggested attributes here
+          will help to make your data more interoperable.
+        </p>
+        <ul>
+          {% for category in attribute_categories %}
+          <li><a href="#{{ category.get('#meta+id') }}">{{ category.get('#meta+category') }}</a></li>
+          {% endfor %}
+        </ul>
+        {% for category in attribute_categories %}
+        <section id="{{ category.get('#meta+id') }}">
+          <h2>{{ category.get('#meta+category') }}</h2>
+            {% for attribute in attributes_by_category[category.get('#meta+category')] %}
+            {% set def = attribute_defs[attribute] %}
+            <section  id="{{ attribute | replace('+', 'att_')  }}" class="attribute">
+              <h4>{{ attribute }}</h4>
+              <p class="lede">{{ def.get('#description') }}</p>
+              <table class="listing">
+                <tr>
+                  <th>Status</th>
+                  <td>{{ def.get('#status') }} ({{def.get('#meta +release') }})</td>
+                </tr>
+              </table>
+              {% if attribute_hashtag_map[attribute] %}
+              <section>
+                <h5>Associated hashtags</h5>
+                <table>
+                  {% for hashtag in attribute_hashtag_map[attribute] | sort %}
+                  {% set def = hashtag_defs.get(hashtag) %}
+                  <tr>
+                    <td><a href="{{ hashtag | replace('#', '#tag_') }}">{{ hashtag }}</a></td>
+                    {% if def %}
+                    <td>{{ def.get('#description') }}</td>
+                    {% endif %}
+                  </tr>
+                  {% endfor %}
+                </table>
+              </section>
+              {% endif %}
+            </section>
+            {% endfor %}
+        </section>
+        {% endfor %}
+      </section>
+      <section id="changes">
+        <h1>Changes from previous versions</h1>
+        <p>
+          Changes from <a
+          href="http://hxlstandard.org/standards/1_0final/dictionary/">HXL
+          1.0 final</a> to HXL 1.1 beta:
+        </p>
+        <ul>
+          <li>
+            Added new core hashtags #access, #currency, #item,
+            #modality, #need, #respondee, #service, and #value.
+          </li>
+          <li>
+            Added suggested attributes +abducted, +converted, +dest,
+            +hh, +ind, and +origin.
+          </li>
+          <li>
+            Deprecated two-letter language attributes like <i>+fr</i>
+            for French (replaced with +i_fr).
+          </li>
+        </ul>
+        <p>
+          Changes from <a
+          href="http://hxlstandard.org/standards/1_0beta/dictionary/">HXL
+          1.0 beta</a> final to HXL 1.1 final:
+        </p>
+        <ul>
+          <li>
+            Added the new #event and #group hashtags.
+          </li>
+          <li>
+            No longer list data types for hashtags (since the attributes
+            can change the suggested type).
+          </li>
+          <li>
+            Some clarifications and examples in descriptions.
+          </li>
+          <li>
+            Minor changes to suggested attributes (non-normative):
+            <ul>
+              <li>
+                Suggest the use of the +text or +name attributes (as
+                appropriate) when hashtags can sometimes refer to
+                human-readable descriptions (e.g. #sector+name vs
+                +sector+code).
+              </li>
+              <li>
+                Suggest GeoJSON format for the content of #geo+bounds
+              </li>
+              <li>
+                Suggest +type as a possible attribute for #affected
+              </li>
+              <li>
+                Suggest impact attributes for #beneficiary, #inneed,
+                #population, #reached, and #targeted
+              </li>
+              <li>
+                Suggest language attributes for #contact, #indicator,
+                and #operations
+              </li>
+              <li>
+                Suggest +occurred as a possible attribute for #date
+              </li>
+              <li>
+                Suggest +reliability, +count, +sum, +average, +min, and
+                +max as additional possible attributes for #meta
+              </li>
+              <li>
+                Added +label.
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <p>
+          Changes from <a
+          href="http://hxlstandard.org/standards/1_0alpha/dictionary/">HXL
+          1.0 alpha</a> to HXL 1.0 beta:
+        </p>
+        <ul>
+          <li>
+            Hashtags removed: #activity_id, #adm, #adm1_id, #adm2_id,
+            #adm3_id, #adm4_id, #adm5_id, #aff_num, #age, #age_id,
+            #agesex, #agesex_id, #beneficiary_id, #country_id,
+            #crisis_id, #crisis_lnk, #data_lnk, #datatype, #datatype_id,
+            #delivered_num, #email, #females_num, #from_date, #funder,
+            #funder_id, #households_num, #idp_num, #impact1,
+            #impact1_id, #impact2, #impact2_id, #impact3, #impact3_id,
+            #impl, #impl_id, #injured_num, #inneed_num, #lat_deg,
+            #loc_id, #loctype, #loctype_id, #lon_deg, #males_num,
+            #method, #method_id, #method_lnk, #name, #org_id, #origin,
+            #origin_id, #output_id, #people_num, #period_date, #phone,
+            #prog, #prog_id, #reached_num, #refugee_num, #region_id,
+            #report_date, #sector_id, #sex, #sex_id, #shelter1,
+            #shelter1_id, #shelter2, #shelter2_id, #source, #source_id,
+            #status_id, #subsector_id, #targeted_num, and #to_date
+          </li>
+          <li>
+            Hashtags added: #affected, #capacity, #cause, #contact,
+            #date, #description, #geo, #impact, #indicator, #inneed,
+            #meta, #operations, #output, #population, #reached,
+            #severity, and #targeted
+          </li>
+          <li>
+            Added hashtag attributes to the standard.
+          </li>
+        </ul>
+      </section>
+    </main>
   </body>
 </html>
