@@ -1,0 +1,28 @@
+body {
+    margin: 1em;
+    font-family: sans-serif;
+}
+
+dl.glossary > dt {
+    font-size: 120%;
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+table {
+    border-collapse:collapse;
+}
+
+table.metadata th {
+    text-align: left;
+    vertical-align: top;
+    font-weight: normal;
+}
+
+table.metadata th:after {
+    content: ":";
+}
+
+td, th {
+    padding: .2em;
+}

@@ -3,29 +3,12 @@
   <head>
     <title>HXL hashtags and attributes</title>
     <meta charset="UTF-8"/>
-    <style>
-      body {
-        margin: 1em;
-        font-family: sans-serif;
-      }
-      dt {
-        font-size: 120%;
-        font-weight: bold;
-        margin-top: 1em;
-      }
-      table {
-        border-collapse:collapse;
-        font-size:83.333333%;
-      }
-      td, th {
-        padding: .5em;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css"/>
   </head>
   <body>
     <h1>HXL hashtags and attributes</h1>
     <p>
-      <i>Release 1.1beta, 20??-??-?? (<a
+      <i>Release 1.1beta, DRAFT 2017-11-28 (<a
       href="">permalink</a>, <a
       href="http://hxlstandard.org/standard/1_0final/dictionary/">previous
       version</a>)</i>
@@ -74,28 +57,58 @@
       {% for category in hashtag_categories %}
       <section>
         <h2 id="{{ category.get('#meta+id') }}">{{ category.get('#meta+category') }}</h2>
-        <dl>
+        <dl class="glossary">
           {% for hashtag in hashtags_by_category[category.get('#meta+category')] | sort%}
           {% set def = hashtag_defs[hashtag] %}
           <dt id="{{ hashtag | replace('#', 'tag_') }}">{{ hashtag }}</dt>
           <dd>
             <p>{{ def.get('#description') }}</p>
-            <p><i>Status:</i> {{ def.get('#status') }} ({{def.get('#meta +release') }})</p>
-            {% if def.get('#valid_vocab +default') %}
-            <p><i>Default vocabulary:</i> {{ def.get('#valid_vocab +default') }}</p>
-            {% endif %}
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>{{ def.get('#status') }} ({{def.get('#meta +release') }})</td>
+              </tr>
+              {% if def.get('#valid_vocab +default') %}
+              <tr>
+                <th>Default vocabulary</th>
+                <td>{{ def.get('#valid_vocab +default') }}</td>
+              </tr>
+              {% endif %}
+              {% if def.get('#valid_datatype') %}
+              <tr>
+                <th>Data type</th>
+                <td>{{ def.get('#valid_datatype') }}</td>
+              </tr>
+              {% endif %}
+              {% if def.get('#meta+example+hxl') %}
+              <tr>
+                <th>Example</th>
+                <td>
+                  <code>{{ def.get('#meta+example+hxl') }}</code>
+                  {% if def.get('#meta+example+description+en') %}
+                  <br/>
+                  <i>{{ def.get('#meta+example+description+en') }}</i>
+                  {% endif %}
+                  {% if def.get('#meta+example+value') %}
+                  <br/>
+                  <i>e.g.: {{ def.get('#meta+example+value') }}</i>
+                  {% endif %}
+                </td>
+              </tr>
+              {% endif %}
+            </table>
             {% if hashtag_attribute_map[hashtag] %}
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               {% for attribute in hashtag_attribute_map[hashtag] | sort %}
               {% set def=attribute_defs[attribute] %}
               <tr>
                 <td><a href="{{ attribute | replace('+', '#att_') }}">{{ attribute }}</a></td>
-                <td>{{ def.get('#description') }}</td>
+                <td>{{ def.get('#description') }} ()</td>
               </tr>
               {% endfor %}
             </table>
-          {% endif %}
+            {% endif %}
           </dd>
           {% endfor %}
         </dl>
@@ -109,7 +122,7 @@
         hashtags, to add extra information to hashtags. You are free
         to use whatever attributes you wish, as long as they meet the
         <a
-        href="http://hxlstandard.org/standard/1_0final/tagging/#attributes">syntactic
+            href="http://hxlstandard.org/standard/1_0final/tagging/#attributes">syntactic
         requirements</a>; however, using the suggested attributes here
         will help to make your data more interoperable.
       </p>

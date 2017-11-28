@@ -3,29 +3,12 @@
   <head>
     <title>HXL hashtags and attributes</title>
     <meta charset="UTF-8"/>
-    <style>
-      body {
-        margin: 1em;
-        font-family: sans-serif;
-      }
-      dt {
-        font-size: 120%;
-        font-weight: bold;
-        margin-top: 1em;
-      }
-      table {
-        border-collapse:collapse;
-        font-size:83.333333%;
-      }
-      td, th {
-        padding: .5em;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css"/>
   </head>
   <body>
     <h1>HXL hashtags and attributes</h1>
     <p>
-      <i>Release 1.1beta, 20??-??-?? (<a
+      <i>Release 1.1beta, DRAFT 2017-11-28 (<a
       href="">permalink</a>, <a
       href="http://hxlstandard.org/standard/1_0final/dictionary/">previous
       version</a>)</i>
@@ -82,372 +65,576 @@
       
       <section>
         <h2 id="places">1.1. Places</h2>
-        <dl>
+        <dl class="glossary">
           
           
           <dt id="tag_adm1">#adm1</dt>
           <dd>
             <p>Top-level subnational administrative area.</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
-            <p><i>Default vocabulary:</i> +v_pcode</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              <tr>
+                <th>Default vocabulary</th>
+                <td>+v_pcode</td>
+              </tr>
+              
+              
+              
+              <tr>
+                <th>Example</th>
+                <td>
+                  <code>#adm1 +code</code>
+                  
+                  <br/>
+                  <i>administrative level 1 (e.g. Syrian governorate) P-code</i>
+                  
+                  
+                  <br/>
+                  <i>e.g.: &#34;SY12&#34; (P-code for Da&#39;ra governorate, Syria)</i>
+                  
+                </td>
+              </tr>
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_dest">+dest</a></td>
-                <td>Place of destination (intended or actual).</td>
+                <td>Place of destination (intended or actual). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_name">+name</a></td>
-                <td>Human-readable name, title, or label.</td>
+                <td>Human-readable name, title, or label. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_origin">+origin</a></td>
-                <td>Place of origin (intended or actual).</td>
+                <td>Place of origin (intended or actual). ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_adm2">#adm2</dt>
           <dd>
             <p>Second-level subnational administrative area.</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
-            <p><i>Default vocabulary:</i> +v_pcode</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              <tr>
+                <th>Default vocabulary</th>
+                <td>+v_pcode</td>
+              </tr>
+              
+              
+              
+              <tr>
+                <th>Example</th>
+                <td>
+                  <code>#adm2 +name</code>
+                  
+                  <br/>
+                  <i>administrative level 2 (e.g. Colombian municipio) name</i>
+                  
+                  
+                  <br/>
+                  <i>e.g.: &#34;Bojayá&#34; (municipio in Chocó, Colombia)</i>
+                  
+                </td>
+              </tr>
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_dest">+dest</a></td>
-                <td>Place of destination (intended or actual).</td>
+                <td>Place of destination (intended or actual). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_name">+name</a></td>
-                <td>Human-readable name, title, or label.</td>
+                <td>Human-readable name, title, or label. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_origin">+origin</a></td>
-                <td>Place of origin (intended or actual).</td>
+                <td>Place of origin (intended or actual). ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_adm3">#adm3</dt>
           <dd>
             <p>Third-level subnational administrative area (e.g. a subdistrict in Afghanistan).</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
-            <p><i>Default vocabulary:</i> +v_pcode</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              <tr>
+                <th>Default vocabulary</th>
+                <td>+v_pcode</td>
+              </tr>
+              
+              
+              
+              <tr>
+                <th>Example</th>
+                <td>
+                  <code>#adm3 +code</code>
+                  
+                  <br/>
+                  <i>administrative level 3 (e.g. subdistrict) P-code</i>
+                  
+                  
+                </td>
+              </tr>
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_dest">+dest</a></td>
-                <td>Place of destination (intended or actual).</td>
+                <td>Place of destination (intended or actual). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_name">+name</a></td>
-                <td>Human-readable name, title, or label.</td>
+                <td>Human-readable name, title, or label. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_origin">+origin</a></td>
-                <td>Place of origin (intended or actual).</td>
+                <td>Place of origin (intended or actual). ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_adm4">#adm4</dt>
           <dd>
             <p>Fourth-level subnational administrative area (e.g. a barangay in the Philippines).</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
-            <p><i>Default vocabulary:</i> +v_pcode</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              <tr>
+                <th>Default vocabulary</th>
+                <td>+v_pcode</td>
+              </tr>
+              
+              
+              
+              <tr>
+                <th>Example</th>
+                <td>
+                  <code>#adm4 +name</code>
+                  
+                  <br/>
+                  <i>administrative level 4 (e.g. municipality) name</i>
+                  
+                  
+                </td>
+              </tr>
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_dest">+dest</a></td>
-                <td>Place of destination (intended or actual).</td>
+                <td>Place of destination (intended or actual). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_name">+name</a></td>
-                <td>Human-readable name, title, or label.</td>
+                <td>Human-readable name, title, or label. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_origin">+origin</a></td>
-                <td>Place of origin (intended or actual).</td>
+                <td>Place of origin (intended or actual). ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_adm5">#adm5</dt>
           <dd>
             <p>Fifth-level subnational administrative area (e.g. a ward of a city).</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
-            <p><i>Default vocabulary:</i> +v_pcode</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              <tr>
+                <th>Default vocabulary</th>
+                <td>+v_pcode</td>
+              </tr>
+              
+              
+              
+              <tr>
+                <th>Example</th>
+                <td>
+                  <code>#adm5 +code</code>
+                  
+                  <br/>
+                  <i>administrative level 5 (e.g. ward) name</i>
+                  
+                  
+                </td>
+              </tr>
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_dest">+dest</a></td>
-                <td>Place of destination (intended or actual).</td>
+                <td>Place of destination (intended or actual). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_name">+name</a></td>
-                <td>Human-readable name, title, or label.</td>
+                <td>Human-readable name, title, or label. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_origin">+origin</a></td>
-                <td>Place of origin (intended or actual).</td>
+                <td>Place of origin (intended or actual). ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_country">#country</dt>
           <dd>
             <p>Country (often left implied in a dataset).</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
-            <p><i>Default vocabulary:</i> +v_iso3</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              <tr>
+                <th>Default vocabulary</th>
+                <td>+v_iso3</td>
+              </tr>
+              
+              
+              
+              <tr>
+                <th>Example</th>
+                <td>
+                  <code>#country +name</code>
+                  
+                  <br/>
+                  <i>country name</i>
+                  
+                  
+                  <br/>
+                  <i>e.g.: Rwanda</i>
+                  
+                </td>
+              </tr>
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_dest">+dest</a></td>
-                <td>Place of destination (intended or actual).</td>
+                <td>Place of destination (intended or actual). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_name">+name</a></td>
-                <td>Human-readable name, title, or label.</td>
+                <td>Human-readable name, title, or label. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_origin">+origin</a></td>
-                <td>Place of origin (intended or actual).</td>
+                <td>Place of origin (intended or actual). ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_geo">#geo</dt>
           <dd>
             <p>Geodetic geometry information (points, lines, shapes). Use for latitude and longitude, as well as bounds information.</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+              <tr>
+                <th>Example</th>
+                <td>
+                  <code>#geo +lat</code>
+                  
+                  <br/>
+                  <i>latitude</i>
+                  
+                  
+                  <br/>
+                  <i>e.g.: 10.4846</i>
+                  
+                </td>
+              </tr>
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_bounds">+bounds</a></td>
-                <td>Boundary data (e.g. inline GeoJSON).</td>
+                <td>Boundary data (e.g. inline GeoJSON). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_coord">+coord</a></td>
-                <td>Geodetic coordinates (lat+lon together).</td>
+                <td>Geodetic coordinates (lat+lon together). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_elevation">+elevation</a></td>
-                <td>Elevation above sea level (usually metres).</td>
+                <td>Elevation above sea level (usually metres). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_lat">+lat</a></td>
-                <td>Latitude (decimal degrees preferred).</td>
+                <td>Latitude (decimal degrees preferred). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_lon">+lon</a></td>
-                <td>Longitude (decimal degrees preferred).</td>
+                <td>Longitude (decimal degrees preferred). ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_loc">#loc</dt>
           <dd>
             <p>Any point location, such as a village, camp, or clinic.</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+              <tr>
+                <th>Example</th>
+                <td>
+                  <code>#loc +code</code>
+                  
+                  <br/>
+                  <i>location P-code</i>
+                  
+                  
+                </td>
+              </tr>
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_dest">+dest</a></td>
-                <td>Place of destination (intended or actual).</td>
+                <td>Place of destination (intended or actual). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_name">+name</a></td>
-                <td>Human-readable name, title, or label.</td>
+                <td>Human-readable name, title, or label. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_origin">+origin</a></td>
-                <td>Place of origin (intended or actual).</td>
+                <td>Place of origin (intended or actual). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_type">+type</a></td>
-                <td>Types or categories.</td>
+                <td>Types or categories. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_region">#region</dt>
           <dd>
             <p>Supra- or cross-national region (e.g. Sahel, Horn of Africa, Caribbean).</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+              <tr>
+                <th>Example</th>
+                <td>
+                  <code>#region +name</code>
+                  
+                  <br/>
+                  <i>multinational-region name</i>
+                  
+                  
+                  <br/>
+                  <i>e.g.: Sahel</i>
+                  
+                </td>
+              </tr>
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_dest">+dest</a></td>
-                <td>Place of destination (intended or actual).</td>
+                <td>Place of destination (intended or actual). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_name">+name</a></td>
-                <td>Human-readable name, title, or label.</td>
+                <td>Human-readable name, title, or label. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_origin">+origin</a></td>
-                <td>Place of origin (intended or actual).</td>
+                <td>Place of origin (intended or actual). ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
         </dl>
@@ -455,558 +642,635 @@
       
       <section>
         <h2 id="people">1.2. People and households</h2>
-        <dl>
+        <dl class="glossary">
           
           
           <dt id="tag_affected">#affected</dt>
           <dd>
             <p>Number of people or households affected by an emergency.</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              <tr>
+                <th>Data type</th>
+                <td>number</td>
+              </tr>
+              
+              
+              <tr>
+                <th>Example</th>
+                <td>
+                  <code>#affected +f +children</code>
+                  
+                  <br/>
+                  <i>number of girls affected</i>
+                  
+                  
+                  <br/>
+                  <i>e.g.: 15000</i>
+                  
+                </td>
+              </tr>
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_abducted">+abducted</a></td>
-                <td>Abducted people.</td>
+                <td>Abducted people. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_adolescents">+adolescents</a></td>
-                <td>Adolescents, loosely defined (precise age range varies); may overlap with +children and +adult.</td>
+                <td>Adolescents, loosely defined (precise age range varies); may overlap with +children and +adult. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_adults">+adults</a></td>
-                <td>Adults, loosely defined (precise age range varies); may overlap with +adolescents and +elderly.</td>
+                <td>Adults, loosely defined (precise age range varies); may overlap with +adolescents and +elderly. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_children">+children</a></td>
-                <td>The associated hashtag applies to non-adults, loosely defined (precise age range varies; may overlap +infants and +adolescents).</td>
+                <td>The associated hashtag applies to non-adults, loosely defined (precise age range varies; may overlap +infants and +adolescents). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_displaced">+displaced</a></td>
-                <td>Displaced people or households.</td>
+                <td>Displaced people or households. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_elderly">+elderly</a></td>
-                <td>Elderly people, loosely defined (precise age range varies). May overlap with +adults.</td>
+                <td>Elderly people, loosely defined (precise age range varies). May overlap with +adults. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_f">+f</a></td>
-                <td>Female people.</td>
+                <td>Female people. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_hh">+hh</a></td>
-                <td>Households.</td>
+                <td>Households. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_i">+i</a></td>
-                <td>Intersex or non-gender-binary people.</td>
+                <td>Intersex or non-gender-binary people. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_idps">+idps</a></td>
-                <td>Internally-displaced people or households.</td>
+                <td>Internally-displaced people or households. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_incamp">+incamp</a></td>
-                <td>Located in camps.</td>
+                <td>Located in camps. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_ind">+ind</a></td>
-                <td>Number of individuals.</td>
+                <td>Number of individuals. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_infants">+infants</a></td>
-                <td>Infant children, loosely defined (precise age range varies; may overlap +children).</td>
+                <td>Infant children, loosely defined (precise age range varies; may overlap +children). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_infected">+infected</a></td>
-                <td>People infected with a disease.</td>
+                <td>People infected with a disease. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_injured">+injured</a></td>
-                <td>People injured.</td>
+                <td>People injured. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_killed">+killed</a></td>
-                <td>People killed.</td>
+                <td>People killed. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_m">+m</a></td>
-                <td>Male people.</td>
+                <td>Male people. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_noncamp">+noncamp</a></td>
-                <td>Not located in camps.</td>
+                <td>Not located in camps. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_refugees">+refugees</a></td>
-                <td>Refugee people or households.</td>
+                <td>Refugee people or households. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_beneficiary">#beneficiary</dt>
           <dd>
             <p>Beneficiary information.</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_name">+name</a></td>
-                <td>Human-readable name, title, or label.</td>
+                <td>Human-readable name, title, or label. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_type">+type</a></td>
-                <td>Types or categories.</td>
+                <td>Types or categories. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_inneed">#inneed</dt>
           <dd>
             <p>Number of people or households in need of assistance.</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              <tr>
+                <th>Data type</th>
+                <td>number</td>
+              </tr>
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_abducted">+abducted</a></td>
-                <td>Abducted people.</td>
+                <td>Abducted people. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_adolescents">+adolescents</a></td>
-                <td>Adolescents, loosely defined (precise age range varies); may overlap with +children and +adult.</td>
+                <td>Adolescents, loosely defined (precise age range varies); may overlap with +children and +adult. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_adults">+adults</a></td>
-                <td>Adults, loosely defined (precise age range varies); may overlap with +adolescents and +elderly.</td>
+                <td>Adults, loosely defined (precise age range varies); may overlap with +adolescents and +elderly. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_children">+children</a></td>
-                <td>The associated hashtag applies to non-adults, loosely defined (precise age range varies; may overlap +infants and +adolescents).</td>
+                <td>The associated hashtag applies to non-adults, loosely defined (precise age range varies; may overlap +infants and +adolescents). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_displaced">+displaced</a></td>
-                <td>Displaced people or households.</td>
+                <td>Displaced people or households. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_elderly">+elderly</a></td>
-                <td>Elderly people, loosely defined (precise age range varies). May overlap with +adults.</td>
+                <td>Elderly people, loosely defined (precise age range varies). May overlap with +adults. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_f">+f</a></td>
-                <td>Female people.</td>
+                <td>Female people. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_hh">+hh</a></td>
-                <td>Households.</td>
+                <td>Households. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_i">+i</a></td>
-                <td>Intersex or non-gender-binary people.</td>
+                <td>Intersex or non-gender-binary people. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_idps">+idps</a></td>
-                <td>Internally-displaced people or households.</td>
+                <td>Internally-displaced people or households. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_incamp">+incamp</a></td>
-                <td>Located in camps.</td>
+                <td>Located in camps. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_ind">+ind</a></td>
-                <td>Number of individuals.</td>
+                <td>Number of individuals. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_infants">+infants</a></td>
-                <td>Infant children, loosely defined (precise age range varies; may overlap +children).</td>
+                <td>Infant children, loosely defined (precise age range varies; may overlap +children). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_infected">+infected</a></td>
-                <td>People infected with a disease.</td>
+                <td>People infected with a disease. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_injured">+injured</a></td>
-                <td>People injured.</td>
+                <td>People injured. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_killed">+killed</a></td>
-                <td>People killed.</td>
+                <td>People killed. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_m">+m</a></td>
-                <td>Male people.</td>
+                <td>Male people. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_noncamp">+noncamp</a></td>
-                <td>Not located in camps.</td>
+                <td>Not located in camps. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_refugees">+refugees</a></td>
-                <td>Refugee people or households.</td>
+                <td>Refugee people or households. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_population">#population</dt>
           <dd>
             <p>Population characteristics.</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              <tr>
+                <th>Data type</th>
+                <td>number</td>
+              </tr>
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_abducted">+abducted</a></td>
-                <td>Abducted people.</td>
+                <td>Abducted people. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_adolescents">+adolescents</a></td>
-                <td>Adolescents, loosely defined (precise age range varies); may overlap with +children and +adult.</td>
+                <td>Adolescents, loosely defined (precise age range varies); may overlap with +children and +adult. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_adults">+adults</a></td>
-                <td>Adults, loosely defined (precise age range varies); may overlap with +adolescents and +elderly.</td>
+                <td>Adults, loosely defined (precise age range varies); may overlap with +adolescents and +elderly. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_children">+children</a></td>
-                <td>The associated hashtag applies to non-adults, loosely defined (precise age range varies; may overlap +infants and +adolescents).</td>
+                <td>The associated hashtag applies to non-adults, loosely defined (precise age range varies; may overlap +infants and +adolescents). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_displaced">+displaced</a></td>
-                <td>Displaced people or households.</td>
+                <td>Displaced people or households. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_elderly">+elderly</a></td>
-                <td>Elderly people, loosely defined (precise age range varies). May overlap with +adults.</td>
+                <td>Elderly people, loosely defined (precise age range varies). May overlap with +adults. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_f">+f</a></td>
-                <td>Female people.</td>
+                <td>Female people. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_hh">+hh</a></td>
-                <td>Households.</td>
+                <td>Households. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_i">+i</a></td>
-                <td>Intersex or non-gender-binary people.</td>
+                <td>Intersex or non-gender-binary people. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_idps">+idps</a></td>
-                <td>Internally-displaced people or households.</td>
+                <td>Internally-displaced people or households. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_incamp">+incamp</a></td>
-                <td>Located in camps.</td>
+                <td>Located in camps. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_ind">+ind</a></td>
-                <td>Number of individuals.</td>
+                <td>Number of individuals. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_infants">+infants</a></td>
-                <td>Infant children, loosely defined (precise age range varies; may overlap +children).</td>
+                <td>Infant children, loosely defined (precise age range varies; may overlap +children). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_infected">+infected</a></td>
-                <td>People infected with a disease.</td>
+                <td>People infected with a disease. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_injured">+injured</a></td>
-                <td>People injured.</td>
+                <td>People injured. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_killed">+killed</a></td>
-                <td>People killed.</td>
+                <td>People killed. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_m">+m</a></td>
-                <td>Male people.</td>
+                <td>Male people. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_noncamp">+noncamp</a></td>
-                <td>Not located in camps.</td>
+                <td>Not located in camps. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_refugees">+refugees</a></td>
-                <td>Refugee people or households.</td>
+                <td>Refugee people or households. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_reached">#reached</dt>
           <dd>
             <p>Number of people or households reached with assistance.</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              <tr>
+                <th>Data type</th>
+                <td>number</td>
+              </tr>
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_abducted">+abducted</a></td>
-                <td>Abducted people.</td>
+                <td>Abducted people. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_adolescents">+adolescents</a></td>
-                <td>Adolescents, loosely defined (precise age range varies); may overlap with +children and +adult.</td>
+                <td>Adolescents, loosely defined (precise age range varies); may overlap with +children and +adult. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_adults">+adults</a></td>
-                <td>Adults, loosely defined (precise age range varies); may overlap with +adolescents and +elderly.</td>
+                <td>Adults, loosely defined (precise age range varies); may overlap with +adolescents and +elderly. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_children">+children</a></td>
-                <td>The associated hashtag applies to non-adults, loosely defined (precise age range varies; may overlap +infants and +adolescents).</td>
+                <td>The associated hashtag applies to non-adults, loosely defined (precise age range varies; may overlap +infants and +adolescents). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_displaced">+displaced</a></td>
-                <td>Displaced people or households.</td>
+                <td>Displaced people or households. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_elderly">+elderly</a></td>
-                <td>Elderly people, loosely defined (precise age range varies). May overlap with +adults.</td>
+                <td>Elderly people, loosely defined (precise age range varies). May overlap with +adults. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_f">+f</a></td>
-                <td>Female people.</td>
+                <td>Female people. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_hh">+hh</a></td>
-                <td>Households.</td>
+                <td>Households. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_i">+i</a></td>
-                <td>Intersex or non-gender-binary people.</td>
+                <td>Intersex or non-gender-binary people. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_idps">+idps</a></td>
-                <td>Internally-displaced people or households.</td>
+                <td>Internally-displaced people or households. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_incamp">+incamp</a></td>
-                <td>Located in camps.</td>
+                <td>Located in camps. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_ind">+ind</a></td>
-                <td>Number of individuals.</td>
+                <td>Number of individuals. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_infants">+infants</a></td>
-                <td>Infant children, loosely defined (precise age range varies; may overlap +children).</td>
+                <td>Infant children, loosely defined (precise age range varies; may overlap +children). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_infected">+infected</a></td>
-                <td>People infected with a disease.</td>
+                <td>People infected with a disease. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_injured">+injured</a></td>
-                <td>People injured.</td>
+                <td>People injured. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_killed">+killed</a></td>
-                <td>People killed.</td>
+                <td>People killed. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_m">+m</a></td>
-                <td>Male people.</td>
+                <td>Male people. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_noncamp">+noncamp</a></td>
-                <td>Not located in camps.</td>
+                <td>Not located in camps. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_refugees">+refugees</a></td>
-                <td>Refugee people or households.</td>
+                <td>Refugee people or households. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_respondee">#respondee</dt>
           <dd>
             <p>Descriptive information about a single respondee (person, household, etc.) for survey-style data.</p>
-            <p><i>Status:</i> Pre-release (1.1)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Pre-release (1.1)</td>
+              </tr>
+              
+              
+              
+            </table>
             
           </dd>
           
@@ -1014,128 +1278,140 @@
           <dt id="tag_targeted">#targeted</dt>
           <dd>
             <p>Number of people or households targeted for assistance</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              <tr>
+                <th>Data type</th>
+                <td>number</td>
+              </tr>
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_abducted">+abducted</a></td>
-                <td>Abducted people.</td>
+                <td>Abducted people. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_adolescents">+adolescents</a></td>
-                <td>Adolescents, loosely defined (precise age range varies); may overlap with +children and +adult.</td>
+                <td>Adolescents, loosely defined (precise age range varies); may overlap with +children and +adult. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_adults">+adults</a></td>
-                <td>Adults, loosely defined (precise age range varies); may overlap with +adolescents and +elderly.</td>
+                <td>Adults, loosely defined (precise age range varies); may overlap with +adolescents and +elderly. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_children">+children</a></td>
-                <td>The associated hashtag applies to non-adults, loosely defined (precise age range varies; may overlap +infants and +adolescents).</td>
+                <td>The associated hashtag applies to non-adults, loosely defined (precise age range varies; may overlap +infants and +adolescents). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_displaced">+displaced</a></td>
-                <td>Displaced people or households.</td>
+                <td>Displaced people or households. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_elderly">+elderly</a></td>
-                <td>Elderly people, loosely defined (precise age range varies). May overlap with +adults.</td>
+                <td>Elderly people, loosely defined (precise age range varies). May overlap with +adults. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_f">+f</a></td>
-                <td>Female people.</td>
+                <td>Female people. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_hh">+hh</a></td>
-                <td>Households.</td>
+                <td>Households. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_i">+i</a></td>
-                <td>Intersex or non-gender-binary people.</td>
+                <td>Intersex or non-gender-binary people. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_idps">+idps</a></td>
-                <td>Internally-displaced people or households.</td>
+                <td>Internally-displaced people or households. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_incamp">+incamp</a></td>
-                <td>Located in camps.</td>
+                <td>Located in camps. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_ind">+ind</a></td>
-                <td>Number of individuals.</td>
+                <td>Number of individuals. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_infants">+infants</a></td>
-                <td>Infant children, loosely defined (precise age range varies; may overlap +children).</td>
+                <td>Infant children, loosely defined (precise age range varies; may overlap +children). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_infected">+infected</a></td>
-                <td>People infected with a disease.</td>
+                <td>People infected with a disease. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_injured">+injured</a></td>
-                <td>People injured.</td>
+                <td>People injured. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_killed">+killed</a></td>
-                <td>People killed.</td>
+                <td>People killed. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_m">+m</a></td>
-                <td>Male people.</td>
+                <td>Male people. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_noncamp">+noncamp</a></td>
-                <td>Not located in camps.</td>
+                <td>Not located in camps. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_refugees">+refugees</a></td>
-                <td>Refugee people or households.</td>
+                <td>Refugee people or households. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
         </dl>
@@ -1143,14 +1419,21 @@
       
       <section>
         <h2 id="responses">1.3. Responses and other operations</h2>
-        <dl>
+        <dl class="glossary">
           
           
           <dt id="tag_access">#access</dt>
           <dd>
             <p>Accessibility to a market, distribution point, facility, etc.</p>
-            <p><i>Status:</i> Pre-release (1.1)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Pre-release (1.1)</td>
+              </tr>
+              
+              
+              
+            </table>
             
           </dd>
           
@@ -1158,162 +1441,204 @@
           <dt id="tag_activity">#activity</dt>
           <dd>
             <p>Programme, project, or other activity description</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_name">+name</a></td>
-                <td>Human-readable name, title, or label.</td>
+                <td>Human-readable name, title, or label. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_type">+type</a></td>
-                <td>Types or categories.</td>
+                <td>Types or categories. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_url">+url</a></td>
-                <td>Web links.</td>
+                <td>Web links. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_capacity">#capacity</dt>
           <dd>
             <p>The response capacity of the entity being described (e.g. &#34;25 beds&#34;).</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_type">+type</a></td>
-                <td>Types or categories.</td>
+                <td>Types or categories. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_contact">#contact</dt>
           <dd>
             <p>Contact information for the subject of a data record (e.g. an activity).</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_email">+email</a></td>
-                <td>Email address.</td>
+                <td>Email address. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_phone">+phone</a></td>
-                <td>Phone number.</td>
+                <td>Phone number. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_url">+url</a></td>
-                <td>Web links.</td>
+                <td>Web links. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_currency">#currency</dt>
           <dd>
             <p>Name or ISO 4217 currency code for all financial #value cells in the row (e.g. &#34;EUR&#34;).</p>
-            <p><i>Status:</i> Pre-release (1.1)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Pre-release (1.1)</td>
+              </tr>
+              
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_indicator">#indicator</dt>
           <dd>
             <p>A formal indicator being tracked.</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_name">+name</a></td>
-                <td>Human-readable name, title, or label.</td>
+                <td>Human-readable name, title, or label. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_num">+num</a></td>
-                <td>Numeric information.</td>
+                <td>Numeric information. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_text">+text</a></td>
-                <td>Free-form narrative text.</td>
+                <td>Free-form narrative text. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_type">+type</a></td>
-                <td>Types or categories.</td>
+                <td>Types or categories. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_item">#item</dt>
           <dd>
             <p>Physical things provided, stored, shipped, available, used, etc.</p>
-            <p><i>Status:</i> Pre-release (1.1)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Pre-release (1.1)</td>
+              </tr>
+              
+              
+              
+            </table>
             
           </dd>
           
@@ -1321,8 +1646,15 @@
           <dt id="tag_modality">#modality</dt>
           <dd>
             <p>The means by which an aid activity is accomplished. For cash transfers, values might include &#34;cash&#34;, &#34;vouchers&#34;, &#34;in-kind&#34;, etc.</p>
-            <p><i>Status:</i> Pre-release (1.1)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Pre-release (1.1)</td>
+              </tr>
+              
+              
+              
+            </table>
             
           </dd>
           
@@ -1330,238 +1662,299 @@
           <dt id="tag_need">#need</dt>
           <dd>
             <p>A(n) (unfulfilled) need for an affected person, household, group, or population.</p>
-            <p><i>Status:</i> Pre-release (1.1)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Pre-release (1.1)</td>
+              </tr>
+              
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_name">+name</a></td>
-                <td>Human-readable name, title, or label.</td>
+                <td>Human-readable name, title, or label. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_operations">#operations</dt>
           <dd>
             <p>Information that affects humanitarian operations, such as a restriction on movement or road closure.</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_type">+type</a></td>
-                <td>Types or categories.</td>
+                <td>Types or categories. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_org">#org</dt>
           <dd>
             <p>An organisation contributing to a humanitarian emergency response, e.g. a local government, community-based organisation, NGO, agency, donor, or law-enforcement or military unit. Use #group for organisations that are not part of the emergency response (e.g. a paramilitary group).</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_funder">+funder</a></td>
-                <td>Funding org/agency (e.g. donor).</td>
+                <td>Funding org/agency (e.g. donor). ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_impl">+impl</a></td>
-                <td>Implementing partner.</td>
+                <td>Implementing partner. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_name">+name</a></td>
-                <td>Human-readable name, title, or label.</td>
+                <td>Human-readable name, title, or label. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_prog">+prog</a></td>
-                <td>Programming org/agency.</td>
+                <td>Programming org/agency. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_type">+type</a></td>
-                <td>Types or categories.</td>
+                <td>Types or categories. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_url">+url</a></td>
-                <td>Web links.</td>
+                <td>Web links. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_output">#output</dt>
           <dd>
             <p>An output indicator (e.g. “number of water-purification kits distributed”).</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_name">+name</a></td>
-                <td>Human-readable name, title, or label.</td>
+                <td>Human-readable name, title, or label. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_type">+type</a></td>
-                <td>Types or categories.</td>
+                <td>Types or categories. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_sector">#sector</dt>
           <dd>
             <p>A humanitarian cluster or sector. For a formal cluster, use with the +cluster attribute (#sector+cluster).</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_name">+name</a></td>
-                <td>Human-readable name, title, or label.</td>
+                <td>Human-readable name, title, or label. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_type">+type</a></td>
-                <td>Types or categories.</td>
+                <td>Types or categories. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_service">#service</dt>
           <dd>
             <p>A service used or needed by an affected person, household, group, or population.</p>
-            <p><i>Status:</i> Pre-release (1.1)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Pre-release (1.1)</td>
+              </tr>
+              
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_name">+name</a></td>
-                <td>Human-readable name, title, or label.</td>
+                <td>Human-readable name, title, or label. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_url">+url</a></td>
-                <td>Web links.</td>
+                <td>Web links. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_subsector">#subsector</dt>
           <dd>
             <p>A humanitarian subsector.</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_name">+name</a></td>
-                <td>Human-readable name, title, or label.</td>
+                <td>Human-readable name, title, or label. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_type">+type</a></td>
-                <td>Types or categories.</td>
+                <td>Types or categories. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_value">#value</dt>
           <dd>
             <p>A financial or other countable value.</p>
-            <p><i>Status:</i> Pre-release (1.1)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Pre-release (1.1)</td>
+              </tr>
+              
+              
+              <tr>
+                <th>Data type</th>
+                <td>number</td>
+              </tr>
+              
+              
+            </table>
             
           </dd>
           
@@ -1570,78 +1963,99 @@
       
       <section>
         <h2 id="crises">1.4. Crises, incidents, and events</h2>
-        <dl>
+        <dl class="glossary">
           
           
           <dt id="tag_cause">#cause</dt>
           <dd>
             <p>The cause of an event.</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_name">+name</a></td>
-                <td>Human-readable name, title, or label.</td>
+                <td>Human-readable name, title, or label. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_type">+type</a></td>
-                <td>Types or categories.</td>
+                <td>Types or categories. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_crisis">#crisis</dt>
           <dd>
             <p>A humanitarian emergency. For the values under #crisis+code, the GLIDE number is recommended.</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_name">+name</a></td>
-                <td>Human-readable name, title, or label.</td>
+                <td>Human-readable name, title, or label. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_type">+type</a></td>
-                <td>Types or categories.</td>
+                <td>Types or categories. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_event">#event</dt>
           <dd>
             <p>An individual event or incident within a crisis/emergency, such as a (localised) flood, bridge collapse, or conflict.</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+            </table>
             
           </dd>
           
@@ -1649,8 +2063,15 @@
           <dt id="tag_group">#group</dt>
           <dd>
             <p>A group (of any type) related to humanitarian crisis (e.g., a paramilitary group) Use #org for an organisation, such as an NGO, contributing to the humanitarian response, and #population for a collection of people in need of assistance.</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+            </table>
             
           </dd>
           
@@ -1658,64 +2079,78 @@
           <dt id="tag_impact">#impact</dt>
           <dd>
             <p>The impact of a crisis on a group or other entity.</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_name">+name</a></td>
-                <td>Human-readable name, title, or label.</td>
+                <td>Human-readable name, title, or label. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_type">+type</a></td>
-                <td>Types or categories.</td>
+                <td>Types or categories. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_severity">#severity</dt>
           <dd>
             <p>The severity of an event.</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_code">+code</a></td>
-                <td>A unique, machine-readable code.</td>
+                <td>A unique, machine-readable code. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_name">+name</a></td>
-                <td>Human-readable name, title, or label.</td>
+                <td>Human-readable name, title, or label. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_type">+type</a></td>
-                <td>Types or categories.</td>
+                <td>Types or categories. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
         </dl>
@@ -1723,70 +2158,89 @@
       
       <section>
         <h2 id="metadata">1.5. Metadata</h2>
-        <dl>
+        <dl class="glossary">
           
           
           <dt id="tag_date">#date</dt>
           <dd>
             <p>Date related to the data in the record applies. Preferred format is ISO 8610 (e.g. “2015-06-01”, “2015-Q1”, etc.)</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              <tr>
+                <th>Data type</th>
+                <td>date</td>
+              </tr>
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_approved">+approved</a></td>
-                <td>Date or time when something was approved.</td>
+                <td>Date or time when something was approved. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_canceled">+canceled</a></td>
-                <td>Date or time when something (e.g. an #activity) was canceled.</td>
+                <td>Date or time when something (e.g. an #activity) was canceled. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_converted">+converted</a></td>
-                <td>Date or time used for converting a monetary value to another currency.</td>
+                <td>Date or time used for converting a monetary value to another currency. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_end">+end</a></td>
-                <td>Date or time when something finished or will finish.</td>
+                <td>Date or time when something finished or will finish. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_occurred">+occurred</a></td>
-                <td>Date or time when something took place.</td>
+                <td>Date or time when something took place. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_reported">+reported</a></td>
-                <td>Date or time when something was reported.</td>
+                <td>Date or time when something was reported. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_start">+start</a></td>
-                <td>Date or time when something started or will start.</td>
+                <td>Date or time when something started or will start. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_description">#description</dt>
           <dd>
             <p>Long description for a data record.</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+            </table>
             
           </dd>
           
@@ -1794,34 +2248,48 @@
           <dt id="tag_meta">#meta</dt>
           <dd>
             <p>Metadata about a row.</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+            </table>
             
             <p><i>Suggested attributes:</i></p>
-            <table border="border">
+            <table class="cross-refs">
               
               
               <tr>
                 <td><a href="#att_source">+source</a></td>
-                <td>Information source.</td>
+                <td>Information source. ()</td>
               </tr>
               
               
               <tr>
                 <td><a href="#att_url">+url</a></td>
-                <td>Web links.</td>
+                <td>Web links. ()</td>
               </tr>
               
             </table>
-          
+            
           </dd>
           
           
           <dt id="tag_status">#status</dt>
           <dd>
             <p>Project/activity status description (such as “planned”, “active”, “canceled”, or “complete”).</p>
-            <p><i>Status:</i> Released (1.0)</p>
-            
+            <table class="metadata">
+              <tr>
+                <th>Status</th>
+                <td>Released (1.0)</td>
+              </tr>
+              
+              
+              
+            </table>
             
           </dd>
           
@@ -1836,7 +2304,7 @@
         hashtags, to add extra information to hashtags. You are free
         to use whatever attributes you wish, as long as they meet the
         <a
-        href="http://hxlstandard.org/standard/1_0final/tagging/#attributes">syntactic
+            href="http://hxlstandard.org/standard/1_0final/tagging/#attributes">syntactic
         requirements</a>; however, using the suggested attributes here
         will help to make your data more interoperable.
       </p>
