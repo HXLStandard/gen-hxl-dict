@@ -9,7 +9,7 @@
     <h1>HXL hashtags and attributes</h1>
     <main>
       <p>
-        <i>Release 1.1beta, DRAFT 2017-11-28 (<a
+        <i>Release 1.1beta, DRAFT 2017-12-01 (<a
         href="">permalink</a>, <a
         href="http://hxlstandard.org/standard/1_0final/dictionary/">previous
         version</a>)</i>
@@ -284,9 +284,6 @@
       </section>
       <section id="index">
         <h2>4. Index of HXL hashtags and attributes</h2>
-        <p class="note">
-          Reminder: HXL <a href="#hashtags">hashtags</a> begin with "#", while <a href="#attributes">attributes</a> begin with "+".
-        </p>
         <dl class="index">
           {% for item in index_items %}
           {% if item[0] == '#' %}
@@ -295,7 +292,7 @@
             {{ hashtag_defs[item].get('#description') }}
           </dd>
           {% else %}
-          <dt class="attribute"><a href="#att_{{ item[1:] }}">{{ item }}</a></dt>
+          <dt class="attribute"><a href="#att_{{ item[1:] }}">{{ item }}</a> (attribute)</dt>
           <dd>
             {{ attribute_defs[item].get('#description') }}
           </dd>
