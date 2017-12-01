@@ -174,7 +174,8 @@ def run(hashtag_categories_url, hashtags_url, attribute_categories_url, attribut
             attribute_defs=attribute_defs,
             attribute_categories=attribute_categories,
             attributes_by_category=attributes_by_category,
-            attribute_hashtag_map=attribute_hashtag_map
+            attribute_hashtag_map=attribute_hashtag_map,
+            index_items = sorted(list(hashtag_defs.keys()) + list(attribute_defs.keys()), key=lambda key: key[1:])
         ))
 
 #

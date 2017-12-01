@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="style.css"/>
   </head>
   <body>
+    <h1>HXL hashtags and attributes</h1>
     <main>
-      <h1>HXL hashtags and attributes</h1>
       <p>
         <i>Release 1.1beta, DRAFT 2017-11-28 (<a
         href="">permalink</a>, <a
@@ -39,6 +39,7 @@
         <li><a href="#hashtags">Core HXL hashtags</a></li>
         <li><a href="#attributes">Suggested attributes</a></li>
         <li><a href="#changes">Changes from previous versions</a></li>
+        <li><a href="#index">Index of hashtags and attributes</a></li>
       </ol>
       <section id="hashtags">
         <h2>1. Core HXL hashtags</h2>
@@ -175,7 +176,7 @@
         {% endfor %}
       </section>
       <section id="changes">
-        <h1>Changes from previous versions</h1>
+        <h2>3. Changes from previous versions</h2>
         <p>
           Changes from <a
           href="http://hxlstandard.org/standards/1_0final/dictionary/">HXL
@@ -280,6 +281,27 @@
             Added hashtag attributes to the standard.
           </li>
         </ul>
+      </section>
+      <section id="index">
+        <h2>4. Index of HXL hashtags and attributes</h2>
+        <p class="note">
+          Reminder: HXL <a href="#hashtags">hashtags</a> begin with "#", while <a href="#attributes">attributes</a> begin with "+".
+        </p>
+        <dl class="index">
+          {% for item in index_items %}
+          {% if item[0] == '#' %}
+          <dt class="hashtag"><a href="#tag_{{ item[1:] }}">{{ item }}</a></dt>
+          <dd>
+            {{ hashtag_defs[item].get('#description') }}
+          </dd>
+          {% else %}
+          <dt class="attribute"><a href="#att_{{ item[1:] }}">{{ item }}</a></dt>
+          <dd>
+            {{ attribute_defs[item].get('#description') }}
+          </dd>
+          {% endif %}
+          {% endfor %}
+        </dl>
       </section>
     </main>
   </body>
