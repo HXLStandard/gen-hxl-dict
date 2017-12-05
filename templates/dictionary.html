@@ -14,47 +14,92 @@
         href="http://hxlstandard.org/standard/1_0final/dictionary/">previous
         version</a>)</i>
       </p>
-      <p>
-        <i>(See <a
-        href="http://hxlstandard.org/standard">hxlstandard.org/standard</a>
-        for a list of all parts of the HXL standard.)</i>
-      </p>
-      <p>
-        <b>Intended audience:</b> This document is intended for
-        information management professionals, software developers, and
-        others who need to explore HXL <a
-        href="http://hxlstandard.org/standard/1_1beta/tagging/#structure">hashtags</a>
-        and <a
-        href="http://hxlstandard.org/standard/1_1beta/tagging/#structure.attributes">attributes</a>
-        in depth. For day-to-day use, the <a
-        href="http://hxlstandard.org/standard/postcards">HXL
-        postcard</a> provides a simple overview of the same
-        information.
-      </p>
-      <p>
-        This document suggests some basic hashtags for the <a
-        href="http://hxlstandard.org">Humanitarian Exchange Language</a>
-        (HXL). You add these tags in a row after the last header row in
-        a spreadsheet, then include the spreadsheet data afterwards. For
-        more information about using HXL hashtags and attributes, please
-        see <cite><a
-        href="http://hxlstandard.org/standard/tagging/">HXL
-        tagging conventions.</a></cite>
-      </p>
-      <p>
-        You can make up your own hashtags like <i>#x_toxicity</i> if you
-        cannot find what you need here: see <cite><a
-        href="http://hxlstandard.org/standard/1_0final/tagging/#extensions">Creating
-        extension tags</a></cite> for more information.
-      </p>
-      <ol>
-        <li><a href="#hashtags">Core HXL hashtags</a></li>
-        <li><a href="#attributes">Suggested attributes</a></li>
-        <li><a href="#changes">Changes from previous versions</a></li>
-        <li><a href="#index">Index of hashtags and attributes</a></li>
-      </ol>
+      <section id="contents">
+        <h2>Contents</h2>
+        <ul>
+          <li><a href="#introduction">1. Introduction</a></li>
+          <li><a href="#hashtags">2. Core HXL hashtags</a></li>
+          <li><a href="#attributes">3. Core HXL attributes</a></li>
+          <li><a href="#changes">Appendix A. Changes from previous versions</a></li>
+          <li><a href="#index">Appendix B. Index of hashtags and attributes</a></li>
+        </ul>
+      </section>
+      <section id="introduction">
+        <h2>1. Introduction</h2>
+        <p>
+          <i>(See <a
+          href="http://hxlstandard.org/standard">hxlstandard.org/standard</a>
+          for a list of all parts of the HXL standard.)</i>
+        </p>
+        <p>
+          <b>Intended audience:</b> This document is intended for
+          information management professionals, software developers, and
+          others who need to explore HXL <a
+          href="http://hxlstandard.org/standard/1_1beta/tagging/#structure">hashtags</a>
+          and <a
+          href="http://hxlstandard.org/standard/1_1beta/tagging/#structure.attributes">attributes</a>
+          in depth. For day-to-day use, the <a
+          href="http://hxlstandard.org/standard/postcards">HXL
+          postcard</a> provides a simple overview of the same
+          information.
+        </p>
+        <p>
+          This document suggests some basic hashtags for the <a
+          href="http://hxlstandard.org">Humanitarian Exchange Language</a>
+          (HXL). You add these tags in a row after the last header row in
+          a spreadsheet, then include the spreadsheet data afterwards. For
+          more information about using HXL hashtags and attributes, please
+          see <cite><a
+          href="http://hxlstandard.org/standard/tagging/">HXL
+          tagging conventions.</a></cite>
+        </p>
+        <section id="introduction.notes">
+          <h3>1.1. Special notes</h3>
+          <p>
+            <b>Language attributes</b>—like <i>+i_en</i> for English,
+            <i>+i_fr</i> for French, and <i>+i_ar</i> for Arabic—are
+            not included in this document. For information on how to
+            construct them from ISO 639 language codes, see "<a
+            href="http://hxlstandard.org/standard/1_1beta/tagging/#structure.attributes.lang">Attributes
+            for languages</a>" in the HXL tagging conventions.
+          </p>
+          <p>
+            Some hashtags have <b>default vocabularies</b>: those are
+            taxonomies of the values that are expected to appear in
+            the column below the hashtag when you add the <i>+code</i>
+            attribute: for example, the default vocabulary for
+            <i>#adm1 +code</i> is <i>+v_pcode</i> (UN place codes from
+            IASC <a
+            href="https://data.humdata.org/search?ext_cod=1">Common
+            Operational Datasets</a>), but you can override any
+            defaults by supplying a different +v_ attribute. For more
+            information on vocabulary attributes, see "<a
+            href="http://hxlstandard.org/standard/1_1beta/tagging/#structure.attributes.vocab">Attributes
+            for controlled vocabularies</a>" in the HXL tagging
+            conventions document. Note that the <i>+v_</i> attributes
+            appear in the <a
+            href="https://data.humdata.org/dataset/hxl-master-vocabulary-list">HXL
+            master vocabulary list</a> rather than here.
+          </p>
+          <p>
+            If you cannot find what you need here, you can <b>extend
+            HXL</b> with new hashtags like <i>#x_toxicity</i>. For
+            more information on extending HXL, see "<a
+            href="http://hxlstandard.org/standard/1_0final/tagging/#extensions">Creating
+            extension tags</a>" in the HXL tagging conventions. (There
+            is no need to add "x_" when you create your new
+            attributes.)
+          </p>
+          <p>
+            See <b><a
+            href="http://hxlstandard.org/standard/1_1beta/tagging/#credits">Credits</a></b>
+            in the HXL tagging conventions for information about HXL
+            Working Group member organisations and other contributors.
+          </p>
+        </section>
+      </section>
       <section id="hashtags">
-        <h2>1. Core HXL hashtags</h2>
+        <h2>2. Core HXL hashtags</h2>
         <p>
           <i>(A cheatsheet of these hashtags is also available on a <a
           href="http://hxlstandard.org/postcards">postcard</a>.)</i>
@@ -137,7 +182,7 @@
         {% endfor %}
       </section>
       <section id="attributes">
-        <h2>2. Core HXL attributes</h2>
+        <h2>3. Core HXL attributes</h2>
         <p>
           This section contains some suggested attributes for HXL
           hashtags, to add extra information to hashtags. You are free
@@ -154,7 +199,7 @@
         </ul>
         {% for category in attribute_categories %}
         <section id="{{ category.get('#meta+id') }}">
-          <h2>{{ category.get('#meta+category') }}</h2>
+          <h3>{{ category.get('#meta+category') }}</h3>
             {% for attribute in attributes_by_category[category.get('#meta+category')] %}
             {% set def = attribute_defs[attribute] %}
             <section  id="{{ attribute | replace('+', 'att_')  }}" class="attribute">
@@ -188,7 +233,7 @@
         {% endfor %}
       </section>
       <section id="changes">
-        <h2>3. Changes from previous versions</h2>
+        <h2>Appendix A. Changes from previous versions</h2>
         <p>
           Changes from <a
           href="http://hxlstandard.org/standards/1_0final/dictionary/">HXL
@@ -295,7 +340,7 @@
         </ul>
       </section>
       <section id="index">
-        <h2>4. Index of HXL hashtags and attributes</h2>
+        <h2>Appendix B. Index of HXL hashtags and attributes</h2>
         <dl class="index">
           {% for item in index_items %}
           {% if item[0] == '#' %}
