@@ -8,7 +8,7 @@ Usage:
   python gen-hxl-dict.py > output.html
 """
   
-import hxl, html, jinja2, logging, re, sys
+import datetime, hxl, html, jinja2, logging, re, sys
 
 # Die if not at least Python 3.2
 if sys.version_info < (3, 2):
@@ -167,6 +167,7 @@ def run(hashtag_categories_url, hashtags_url, attribute_categories_url, attribut
     template = env.get_template('dictionary.html')
     print(
         template.render(
+            now=datetime.datetime.utcnow(),
             hashtag_defs=hashtag_defs,
             hashtag_categories=hashtag_categories,
             hashtags_by_category=hashtags_by_category,
