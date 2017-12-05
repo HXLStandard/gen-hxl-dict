@@ -29,7 +29,9 @@
         <p>
           <i>(See <a
           href="http://hxlstandard.org/standard">hxlstandard.org/standard</a>
-          for a list of all parts of the HXL standard.)</i>
+          for a list of all parts of the HXL standard. There is also
+          an alphabetical <a href="#index">index of hashtags and
+          attributes</a>)</i>
         </p>
         <p>
           <b>Intended audience:</b> This document is intended for
@@ -44,14 +46,32 @@
           information.
         </p>
         <p>
-          This document suggests some basic hashtags for the <a
-          href="http://hxlstandard.org">Humanitarian Exchange Language</a>
-          (HXL). You add these tags in a row after the last header row in
-          a spreadsheet, then include the spreadsheet data afterwards. For
-          more information about using HXL hashtags and attributes, please
-          see <cite><a
-          href="http://hxlstandard.org/standard/tagging/">HXL
-          tagging conventions.</a></cite>
+          This document suggests some basic hashtags and attributes
+          for the <a href="http://hxlstandard.org">Humanitarian
+          Exchange Language</a> (HXL). You add these tags in a row
+          after the last header row in a spreadsheet, then include the
+          spreadsheet data afterwards.
+        </p>
+        <p>
+          A basic HXL hashtag looks like "<code><a
+          href="#tag_adm1">#adm1</a></code>" (for a subnational
+          administrative level one) or "<code><a
+          href="#tag_affected">#affected</a></code>" (for the number
+          of people affected by a crisis). You can refine the meaning
+          of hashtags by adding attributes after the hashtag, like
+          "<code><a href="#att_f">+f</a></code>" (applies to females)
+          or "<code><a href="#att_children">+children</a></code>"
+          (applies to children). For example, "<code>#affected
+          +f</code>" means the number of female people affected, while
+          "<code>#affected +f +children</code>" further refines the
+          meaning to the number of female <i>children</i> (in other
+          words, girls) affected. The order of attributes does not
+          matter.
+        <p>
+          For more information about using HXL hashtags and
+          attributes, please see <cite><a
+          href="http://hxlstandard.org/standard/tagging/">HXL tagging
+          conventions.</a></cite>
         </p>
         <section id="introduction.notes">
           <h3>1.1. Special notes</h3>
@@ -89,6 +109,20 @@
             extension tags</a>" in the HXL tagging conventions. (There
             is no need to add "x_" when you create your new
             attributes.)
+          </p>
+          <p>
+            If you'd like to add interactive help to your own web site
+            or online tool, you can <b>link</b> easily directly to the
+            definition of any hashtag or attribute by linking to this
+            document and adding an HTML fragment identifier (anchor)
+            replacing "#" with "tag_" for the hashtag, or "+" with
+            "att_" for the attribute. For example, to link directly to
+            the definition of the "#modality" hashtag, use the
+            fragment identifier "<a
+            href="#tag_modality"><code>#tag_modality</code></a>"; to
+            link directly to the definition of the "+funder"
+            attribute, use the fragment identifier "<a
+            href="#att_funder"><code>#att_funder</code></a>".
           </p>
           <p>
             See <b><a
