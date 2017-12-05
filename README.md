@@ -7,6 +7,10 @@ the hashtags and attributes is located at
 
 https://docs.google.com/spreadsheets/d/1En9FlmM8PrbTWgl3UHPF_MXnJ6ziVZFhBbojSJzBdLI/edit?usp=sharing
 
+The normative output from this script is at
+
+http://hxlstandard.org/standard/dictionary/
+
 This script reads the core schema and uses it to generate
 human-readable HTML markup for the [HXL Hashtag
 Dictionary](http://hxlstandard.org/standard/dictionary/), which is
