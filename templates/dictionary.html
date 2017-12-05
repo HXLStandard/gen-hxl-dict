@@ -50,7 +50,13 @@
           for the <a href="http://hxlstandard.org">Humanitarian
           Exchange Language</a> (HXL). You add these tags in a row
           after the last header row in a spreadsheet, then include the
-          spreadsheet data afterwards.
+          spreadsheet data afterwards. The document is automatically
+          generated from the <a
+          href="https://data.humdata.org/dataset/hxl-core-schemas">HXL
+          core schemas</a>, a machine-readable version of these same
+          definitions. (The core schema also contains hashtags and
+          attributes that are deprecated or still in a pre-approval
+          stage.)
         </p>
         <p>
           A basic HXL hashtag looks like "<code><a
@@ -67,11 +73,18 @@
           meaning to the number of female <i>children</i> (in other
           words, girls) affected. The order of attributes does not
           matter.
+        </p>
         <p>
           For more information about using HXL hashtags and
           attributes, please see <cite><a
           href="http://hxlstandard.org/standard/tagging/">HXL tagging
-          conventions.</a></cite>
+          conventions.</a></cite> The <a
+          href="https://data.humdata.org">Humanitarian Data
+          Exchange</a> (HDX) also provides a live online tool, <a
+          href="http://tools.humdata.org/examples/hxl/">HXL Tag
+          Assist</a>, that you can use to explore how humanitarians
+          have used HXL hashtags and attributes in the datasets
+          they've shared.
         </p>
         <section id="introduction.notes">
           <h3>1.1. Special notes</h3>
@@ -82,6 +95,20 @@
             construct them from ISO 639 language codes, see "<a
             href="http://hxlstandard.org/standard/1_1beta/tagging/#structure.attributes.lang">Attributes
             for languages</a>" in the HXL tagging conventions.
+          </p>
+          <p>
+            Some hashtags have <b>required datatypes</b>. These apply
+            currently to the <i><a href="#tag_date">#date</a></i>
+            hashtag, which must always tag a column of dates; to the
+            humanitarian caseload hashtags <i><a
+            href="#tag_affected">#affected</a></i>, <i><a
+            href="#tag_inneed">#inneed</a></i>, <i><a
+            href="#tag_targeted">#targeted</a></i>, <i><a
+            href="#tag_reached">#reached</a></i>, which must always
+            tag a column of numbers; and to the financial-amount
+            hashtag <i><a href="#tag_value">#value</a></i>, which must
+            also tag a column of numbers. The data type, if present,
+            appears as part of the hashtag definition.
           </p>
           <p>
             Some hashtags have <b>default vocabularies</b>: those are
