@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>HXL hashtags and attributes</h1>
-    <main>
+    <main class="dictionary">
       <p>
         <i>Pre-release 1.1beta, DRAFT {{ now.date().isoformat() }}
         (<a href="">permalink</a>, <a
@@ -177,64 +177,43 @@
         {% for category in hashtag_categories %}
         <section class="category">
           <h3 id="{{ category.get('#meta+id') }}">{{ category.get('#meta+category') }}</h3>
-          {% for hashtag in hashtags_by_category[category.get('#meta+category')] | sort%}
+          {% for hashtag in hashtags_by_category[category.get('#meta+category')] | sort %}
           {% set def = hashtag_defs[hashtag] %}
-          <section id="{{ hashtag | replace('#', 'tag_') }}" class="hashtag">
+          <section id="tag_{{ hashtag[1:] }}" class="hashtag">
             <h4>{{ hashtag }}</h4>
-            <p class="lede">{{ def.get('#description') }}</p>
-            <table class="listing labels">
-              <tr>
-                <th>Status</th>
-                <td>{{ def.get('#status') }} ({{def.get('#meta +release') }})</td>
-              </tr>
+            <dl class="compact">
+              <dt>Description</dt>
+              <dd>{{ def.get('#description') }}</dd>
+              {% if def.get('#meta+example+hxl') %}
+              <dt>Example</dt>
+              <dd>
+                <code>{{ def.get('#meta+example+hxl') }}</code>
+                {% if def.get('#meta+example+description+en') %}
+                — <i>{{ def.get('#meta+example+description+en') }}</i>
+                {% endif %}
+              </dd>
+              {% endif %}
+              <dt>Status</dt>
+              <dd>{{ def.get('#status') }} ({{def.get('#meta +release') }})</dd>
               {% if def.get('#valid_vocab +default') %}
-              <tr>
-                <th>Default vocabulary</th>
-                <td>{{ def.get('#valid_vocab +default') }}</td>
-              </tr>
+              <dt>Default vocabulary</dt>
+              <dd>{{ def.get('#valid_vocab +default') }}</dd>
               {% endif %}
               {% if def.get('#valid_datatype') %}
-              <tr>
-                <th>Data type</th>
-                <td>{{ def.get('#valid_datatype') }}</td>
-              </tr>
+              <dt>Data type</dt>
+              <dd>{{ def.get('#valid_datatype') }}</dd>
               {% endif %}
-            </table>
+            </dl>
             {% if hashtag_attribute_map[hashtag] %}
             <section>
               <h5>Suggested attributes for <var>{{ hashtag }}</var></h5>
-              <table>
+              <dl class="compact">
                 {% for attribute in hashtag_attribute_map[hashtag] | sort %}
                 {% set def=attribute_defs[attribute] %}
-                <tr>
-                  <td><var><a href="{{ attribute | replace('+', '#att_') }}">{{ attribute }}</a></var></td>
-                  <td>{{ def.get('#description') }}</td>
-                </tr>
+                <dt><var><a href="#att_{{ attribute[1:] }}">{{ attribute }}</a></var></dt>
+                <dd>{{ def.get('#description') }}</dd>
                 {% endfor %}
-              </table>
-            </section>
-            {% endif %}
-            {% if def.get('#meta+example+hxl') %}
-            <section>
-              <h5>Example for <var>{{ hashtag }}</var></h5>
-              <table class="listing">
-                <tr>
-                  <th>HXL hashtag spec</th>
-                  <td><b>{{ def.get('#meta+example+hxl') }}</b></td>
-                </tr>
-                {% if def.get('#meta+example+description+en') %}
-                <tr>
-                  <th>Meaning</th>
-                  <td>{{ def.get('#meta+example+description+en') }}</td>
-                </tr>
-                {% endif %}
-                {% if def.get('#meta+example+value') %}
-                <tr>
-                  <th>Sample data</th>
-                  <td>{{ def.get('#meta+example+value') }}</td>
-                </tr>
-                {% endif %}
-              </table>
+              </dl>
             </section>
             {% endif %}
           </section>
@@ -261,35 +240,32 @@
         {% for category in attribute_categories %}
         <section id="{{ category.get('#meta+id') }}">
           <h3>{{ category.get('#meta+category') }}</h3>
-            {% for attribute in attributes_by_category[category.get('#meta+category')] %}
-            {% set def = attribute_defs[attribute] %}
-            <section  id="{{ attribute | replace('+', 'att_')  }}" class="attribute">
-              <h4>{{ attribute }}</h4>
-              <p class="lede">{{ def.get('#description') }}</p>
-              <table class="listing">
-                <tr>
-                  <th>Status</th>
-                  <td>{{ def.get('#status') }} ({{def.get('#meta +release') }})</td>
-                </tr>
-              </table>
-              {% if attribute_hashtag_map[attribute] %}
-              <section>
-                <h5>Associated hashtags</h5>
-                <table>
-                  {% for hashtag in attribute_hashtag_map[attribute] | sort %}
-                  {% set def = hashtag_defs.get(hashtag) %}
-                  <tr>
-                    <td><a href="{{ hashtag | replace('#', '#tag_') }}">{{ hashtag }}</a></td>
-                    {% if def %}
-                    <td>{{ def.get('#description') }}</td>
-                    {% endif %}
-                  </tr>
-                  {% endfor %}
-                </table>
-              </section>
-              {% endif %}
+          {% for attribute in attributes_by_category[category.get('#meta+category')] %}
+          {% set def = attribute_defs[attribute] %}
+          <section  id="{{ attribute | replace('+', 'att_')  }}" class="attribute">
+            <h4>{{ attribute }}</h4>
+            <p>{{ def.get('#description') }}</p>
+            <dl class="compact">
+              <dt>Status</dt>
+              <dd>{{ def.get('#status') }} ({{def.get('#meta
+              +release') }})</dd>
+            </dl>
+            {% if attribute_hashtag_map[attribute] %}
+            <section>
+              <h5>Associated hashtags</h5>
+              <dl class="compact">
+                {% for hashtag in attribute_hashtag_map[attribute] | sort %}
+                {% set def = hashtag_defs.get(hashtag) %}
+                <dt><a href="{{ hashtag | replace('#', '#tag_') }}">{{ hashtag }}</a></dt>
+                {% if def %}
+                <dd>{{ def.get('#description') }}</dd>
+                {% endif %}
+                {% endfor %}
+              </dl>
             </section>
-            {% endfor %}
+            {% endif %}
+          </section>
+          {% endfor %}
         </section>
         {% endfor %}
       </section>

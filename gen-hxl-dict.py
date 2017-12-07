@@ -138,7 +138,9 @@ def run(hashtag_categories_url, hashtags_url, attribute_categories_url, attribut
     # Set up Jinja2 template environment for rendering HTML
     env = jinja2.Environment(
         loader=jinja2.PackageLoader('gen-hxl-dict', 'templates'),
-        autoescape=jinja2.select_autoescape(['html', 'xml'])
+        autoescape=jinja2.select_autoescape(['html', 'xml']),
+        trim_blocks=True,
+        lstrip_blocks=True
     )
 
     logging.info("Reading hashtag category definitions from {}...".format(hashtag_categories_url))
