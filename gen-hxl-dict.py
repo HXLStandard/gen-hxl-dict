@@ -68,6 +68,19 @@ attribute_hashtag_map = {}
 # Functions
 #
 
+def linkify (s):
+    """Jinja2 filter: escape and linkify text for HTML output.
+    Turn all #hashtags and +attributes into internal links, unless in a quoted string.
+    """
+    s = html.escape(s, quote=False)
+    for _ in range(50): # kludge - don't linkify inside a quotation.
+        s = re.sub(r'"([^"]*)\+([a-zA-Z][^"]*)"', r'"\1+$$$$$\2"', s)
+        s = re.sub(r'"([^"]*)#([a-zA-Z][^"]*)"', r'"\1#$$$$$\2"', s)
+    s = re.sub(r'#([a-zA-z][a-zA-Z0-9_]*)', r'<var><a href="#tag_\1">#\1</a></var>', s)
+    s = re.sub(r'\+([a-zA-z][a-zA-Z0-9_]*)', r'<var><a href="#att_\1">+\1</a></var>', s)
+    s = re.sub(r'\$\$\$\$\$', r'', s)
+    return s
+
 def process_hashtag_def (row):
     """Process a hashtag definition."""
     hashtag = row.get('#valid_tag')
@@ -142,6 +155,7 @@ def run(hashtag_categories_url, hashtags_url, attribute_categories_url, attribut
         trim_blocks=True,
         lstrip_blocks=True
     )
+    env.filters['linkify'] = linkify
 
     logging.info("Reading hashtag category definitions from {}...".format(hashtag_categories_url))
     category_data = hxl.data(hashtag_categories_url).sort('#meta+category')
@@ -161,7 +175,7 @@ def run(hashtag_categories_url, hashtags_url, attribute_categories_url, attribut
         attribute_categories.append(row)
 
     logging.info("Reading attribute definitions from {}...".format(attributes_url))
-    attribute_data = hxl.data(attributes_url).with_rows(['#status=Released', '#status=Pre-release'])
+    attribute_data = hxl.data(attributes_url).with_rows(['#status=Released', '#status=Pre-release', '#status=Beta'])
     for row in attribute_data:
         process_attribute_def(row)
 

@@ -190,7 +190,7 @@
           <section id="tag_{{ hashtag[1:] }}" class="hashtag">
             <h4>{{ hashtag }}</h4>
             <p>
-              {{ def.get('#description +long +en') }}
+              {{ def.get('#description +long +en') | linkify | safe }}
               <i>Since HXL {{def.get('#meta +release') }}.</i>
             </p>
             {% if def.get('#valid_vocab +default') %}
@@ -235,13 +235,12 @@
       <section id="attributes">
         <h2>3. Core HXL attributes</h2>
         <p>
-          This section contains some suggested attributes for HXL
-          hashtags, to add extra information to hashtags. You are free
-          to use whatever attributes you wish, as long as they meet the
-          <a
-              href="http://hxlstandard.org/standard/1_0final/tagging/#attributes">syntactic
-          requirements</a>; however, using the suggested attributes here
-          will help to make your data more interoperable.
+          This section contains some suggested attributes to add extra
+          information to hashtags. You are free to use whatever
+          attributes you wish, as long as they meet the <a
+          href="http://hxlstandard.org/standard/1_0final/tagging/#attributes">syntactic
+          requirements</a>; however, using the suggested attributes
+          will help make your data more interoperable.
         </p>
         <ul>
           {% for category in attribute_categories %}
@@ -256,7 +255,7 @@
           <section  id="{{ attribute | replace('+', 'att_')  }}" class="attribute">
             <h4>{{ attribute }}</h4>
             <p>
-              {{ def.get('#description +long +en') }}
+              {{ def.get('#description +long +en') | linkify | safe }}
               <i>Since HXL {{def.get('#meta +release') }}</i>
             </p>
             {% if def.get('#meta+example+hxl') %}
