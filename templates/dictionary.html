@@ -9,8 +9,9 @@
     <h1>HXL hashtags and attributes</h1>
     <main class="dictionary">
       <p>
-        <i>Pre-release 1.1beta, DRAFT {{ now.date().isoformat() }}
-        (<a href="">permalink</a>, <a
+        <i>Release 1.1 beta, 2017-12-22 (<a
+        href="http://hxlstandard.org/standard/dictionary/">permalink</a>,
+        <a
         href="http://hxlstandard.org/standard/1_0final/dictionary/">previous
         version</a>)</i>
       </p>
@@ -28,45 +29,49 @@
         <h2>1. Introduction</h2>
         <p>
           <i>(See <a
-          href="http://hxlstandard.org/standard">hxlstandard.org/standard</a>
+          href="http://hxlstandard.org/standard/1_1beta/">hxlstandard.org/standard/1_1beta/</a>
           for a list of all parts of the HXL standard. There is also
           an alphabetical <a href="#index">index of hashtags and
-          attributes</a>)</i>
+          attributes</a> at the end of this document.)</i>
         </p>
         <p>
-          <b>Intended audience:</b> This document is intended for
-          information management professionals, software developers, and
-          others who need to explore HXL <a
+          <b>Intended audience:</b> This document is for information
+          management professionals, software developers, and others
+          who need to explore HXL <a
           href="http://hxlstandard.org/standard/1_1beta/tagging/#structure">hashtags</a>
           and <a
           href="http://hxlstandard.org/standard/1_1beta/tagging/#structure.attributes">attributes</a>
           in depth. For day-to-day use, the <a
-          href="http://hxlstandard.org/standard/postcards">HXL
+          href="http://hxlstandard.org/standard/1_1beta/postcards/">HXL
           postcard</a> provides a simple overview of the same
           information.
         </p>
         <p>
-          This document suggests some basic hashtags and attributes
-          for the <a href="http://hxlstandard.org">Humanitarian
-          Exchange Language</a> (HXL). You add these tags in a row
+          The definitions of the core hashtags and attributes for the
+          <a href="http://hxlstandard.org">Humanitarian Exchange
+          Language</a> (HXL) appear here. You add these tags in a row
           after the last header row in a spreadsheet, then include the
-          spreadsheet data afterwards. The document is automatically
-          generated from the <a
+          spreadsheet data below it. The information here comes from
+          the <a
           href="https://data.humdata.org/dataset/hxl-core-schemas">HXL
-          core schemas</a>, a machine-readable version of these same
+          core schema</a>, a machine-readable version of these same
           definitions. (The core schema also contains hashtags and
           attributes that are deprecated or still in a pre-approval
           stage.)
         </p>
         <p>
-          A basic HXL hashtag looks like "<code><a
+          A basic <a
+          href="http://hxlstandard.org/standard/1_1beta/tagging/#structure">HXL
+          hashtag</a> looks like "<code><a
           href="#tag_adm1">#adm1</a></code>" (for a subnational
           administrative level one) or "<code><a
           href="#tag_affected">#affected</a></code>" (for the number
           of people affected by a crisis). You can refine the meaning
-          of hashtags by adding attributes after the hashtag, like
-          "<code><a href="#att_f">+f</a></code>" (applies to females)
-          or "<code><a href="#att_children">+children</a></code>"
+          of hashtags by adding <a
+          href="http://hxlstandard.org/standard/1_1beta/tagging/#structure.attributes">attributes</a>
+          after the hashtag, like "<code><a
+          href="#att_f">+f</a></code>" (applies to females) or
+          "<code><a href="#att_children">+children</a></code>"
           (applies to children). For example, "<code>#affected
           +f</code>" means the number of female people affected, while
           "<code>#affected +f +children</code>" further refines the
@@ -134,22 +139,25 @@
             more information on extending HXL, see "<a
             href="http://hxlstandard.org/standard/1_0final/tagging/#extensions">Creating
             extension tags</a>" in the HXL tagging conventions. (There
-            is no need to add "x_" when you create your new
-            attributes.)
+            is no need to add "x_" when you create new attributes.)
           </p>
           <p>
-            If you'd like to add interactive help to your own web site
-            or online tool, you can <b>link</b> easily directly to the
-            definition of any hashtag or attribute by linking to this
-            document and adding an HTML fragment identifier (anchor)
-            replacing "#" with "tag_" for the hashtag, or "+" with
-            "att_" for the attribute. For example, to link directly to
-            the definition of the "#modality" hashtag, use the
-            fragment identifier "<a
-            href="#tag_modality"><code>#tag_modality</code></a>"; to
-            link directly to the definition of the "+funder"
+            If you'd like to add interactive help to your own
+            HXL-enabled web site or online tool, you can <b>link</b>
+            directly to the definition of any hashtag or attribute by
+            including this document's URL, and adding an HTML fragment
+            identifier (anchor) replacing "#" with "tag_" for the
+            hashtag, or "+" with "att_" for the attribute. For
+            example, to link directly to the definition of the
+            "#modality" hashtag, use the fragment identifier "<a
+            href="#tag_modality"><code>#tag_modality</code></a>",
+            resulting in the full URL <a
+            href="http://hxlstandard.org/standard/1_1beta/dictionary/#tag_modality">http://hxlstandard.org/standard/1_1beta/dictionary/#tag_modality</a>;
+            to link directly to the definition of the "+funder"
             attribute, use the fragment identifier "<a
-            href="#att_funder"><code>#att_funder</code></a>".
+            href="#att_funder"><code>#att_funder</code></a>",
+            resulting in the full URL <a
+            href="http://hxlstandard.org/standard/1_1beta/dictionary/#att_funder">http://hxlstandard.org/standard/1_1beta/dictionary/#att_funder</a>.
           </p>
           <p>
             See <b><a
@@ -181,29 +189,32 @@
           {% set def = hashtag_defs[hashtag] %}
           <section id="tag_{{ hashtag[1:] }}" class="hashtag">
             <h4>{{ hashtag }}</h4>
-            <dl class="compact">
-              <dt>Description</dt>
-              <dd>{{ def.get('#description') }}</dd>
-              {% if def.get('#meta+example+hxl') %}
-              <dt>Example</dt>
-              <dd>
-                <code>{{ def.get('#meta+example+hxl') }}</code>
-                {% if def.get('#meta+example+description+en') %}
-                — <i>{{ def.get('#meta+example+description+en') }}</i>
-                {% endif %}
-              </dd>
+            <p>
+              {{ def.get('#description +long +en') }}
+              <i>Since HXL {{def.get('#meta +release') }}.</i>
+            </p>
+            {% if def.get('#valid_vocab +default') %}
+            <p>
+              Defaults to <var>{{ def.get('#valid_vocab +default')
+              }}</var> with the <a
+              href="#att_code"><var>+code</var></a> attribute you do
+              not specify a vocabulary.
+            </p>
+            {% endif %}
+            {% if def.get('#valid_datatype') %}
+            <p>
+              Every value must be a <b>{{ def.get('#valid_datatype') }}</b>.
+            </p>
+            {% endif %}
+            {% if def.get('#meta+example+hxl') %}
+            <p>
+              e.g.,
+              <code>{{ def.get('#meta+example+hxl') }}</code>
+              {% if def.get('#meta+example+description+en') %}
+              — <i>{{ def.get('#meta+example+description+en') }}</i>
               {% endif %}
-              <dt>Status</dt>
-              <dd>{{ def.get('#status') }} ({{def.get('#meta +release') }})</dd>
-              {% if def.get('#valid_vocab +default') %}
-              <dt>Default vocabulary</dt>
-              <dd>{{ def.get('#valid_vocab +default') }}</dd>
-              {% endif %}
-              {% if def.get('#valid_datatype') %}
-              <dt>Data type</dt>
-              <dd>{{ def.get('#valid_datatype') }}</dd>
-              {% endif %}
-            </dl>
+            </p>
+            {% endif %}
             {% if hashtag_attribute_map[hashtag] %}
             <section>
               <h5>Suggested attributes for <var>{{ hashtag }}</var></h5>
@@ -211,7 +222,7 @@
                 {% for attribute in hashtag_attribute_map[hashtag] | sort %}
                 {% set def=attribute_defs[attribute] %}
                 <dt><var><a href="#att_{{ attribute[1:] }}">{{ attribute }}</a></var></dt>
-                <dd>{{ def.get('#description') }}</dd>
+                <dd>{{ def.get('#description +short +en') }}</dd>
                 {% endfor %}
               </dl>
             </section>
@@ -244,12 +255,19 @@
           {% set def = attribute_defs[attribute] %}
           <section  id="{{ attribute | replace('+', 'att_')  }}" class="attribute">
             <h4>{{ attribute }}</h4>
-            <p>{{ def.get('#description') }}</p>
-            <dl class="compact">
-              <dt>Status</dt>
-              <dd>{{ def.get('#status') }} ({{def.get('#meta
-              +release') }})</dd>
-            </dl>
+            <p>
+              {{ def.get('#description +long +en') }}
+              <i>Since HXL {{def.get('#meta +release') }}</i>
+            </p>
+            {% if def.get('#meta+example+hxl') %}
+            <p>
+              e.g.,
+              <code>{{ def.get('#meta+example+hxl') }}</code>
+              {% if def.get('#meta+example+description+en') %}
+              — <i>{{ def.get('#meta+example+description+en') }}</i>
+              {% endif %}
+            </p>
+            {% endif %}
             {% if attribute_hashtag_map[attribute] %}
             <section>
               <h5>Associated hashtags</h5>
@@ -258,7 +276,7 @@
                 {% set def = hashtag_defs.get(hashtag) %}
                 <dt><a href="{{ hashtag | replace('#', '#tag_') }}">{{ hashtag }}</a></dt>
                 {% if def %}
-                <dd>{{ def.get('#description') }}</dd>
+                <dd>{{ def.get('#description +short +en') }}</dd>
                 {% endif %}
                 {% endfor %}
               </dl>
@@ -288,6 +306,13 @@
           <li>
             Deprecated two-letter language attributes like <i>+fr</i>
             for French (replaced with +i_fr).
+          </li>
+          <li>
+            Changed hashtag categories: renamed "People and
+            households" to "Surveys and assessments", and added "Cash
+            and finance" (though some new hashtags, like <a
+            href="#tag_modality">#modality</a>, are also useful
+            outside cash reporting).
           </li>
         </ul>
         <p>
@@ -383,12 +408,12 @@
           {% if item[0] == '#' %}
           <dt class="hashtag"><a href="#tag_{{ item[1:] }}">{{ item }}</a></dt>
           <dd>
-            {{ hashtag_defs[item].get('#description') }}
+            {{ hashtag_defs[item].get('#description +short +en') }}
           </dd>
           {% else %}
           <dt class="attribute"><a href="#att_{{ item[1:] }}">{{ item }}</a> (attribute)</dt>
           <dd>
-            {{ attribute_defs[item].get('#description') }}
+            {{ attribute_defs[item].get('#description +short +en') }}
           </dd>
           {% endif %}
           {% endfor %}

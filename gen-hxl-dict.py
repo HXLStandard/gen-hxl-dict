@@ -150,7 +150,7 @@ def run(hashtag_categories_url, hashtags_url, attribute_categories_url, attribut
         hashtag_categories.append(row)
 
     logging.info("Reading hashtag definitions from {}...".format(hashtags_url))
-    hashtag_data = hxl.data(hashtags_url).with_rows(['#status=Released', '#status=Pre-release'])
+    hashtag_data = hxl.data(hashtags_url).with_rows(['#status=Released', '#status=Pre-release', '#status=Beta'])
     for row in hashtag_data:
         process_hashtag_def(row)
 
