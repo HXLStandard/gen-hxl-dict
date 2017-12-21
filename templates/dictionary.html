@@ -152,12 +152,12 @@
             "#modality" hashtag, use the fragment identifier "<a
             href="#tag_modality"><code>#tag_modality</code></a>",
             resulting in the full URL <a
-            href="http://hxlstandard.org/standard/1_1beta/dictionary/#tag_modality">http://hxlstandard.org/standard/1_1beta/dictionary/#tag_modality</a>;
+            href="http://hxlstandard.org/standard/1_1beta/dictionary/#tag_modality"><code>http://hxlstandard.org/standard/1_1beta/dictionary/#tag_modality</code></a>;
             to link directly to the definition of the "+funder"
             attribute, use the fragment identifier "<a
             href="#att_funder"><code>#att_funder</code></a>",
             resulting in the full URL <a
-            href="http://hxlstandard.org/standard/1_1beta/dictionary/#att_funder">http://hxlstandard.org/standard/1_1beta/dictionary/#att_funder</a>.
+            href="http://hxlstandard.org/standard/1_1beta/dictionary/#att_funder"><code>http://hxlstandard.org/standard/1_1beta/dictionary/#att_funder</code></a>.
           </p>
           <p>
             See <b><a
@@ -171,7 +171,7 @@
         <h2>2. Core HXL hashtags</h2>
         <p>
           <i>(A cheatsheet of these hashtags is also available on a <a
-          href="http://hxlstandard.org/postcards">postcard</a>.)</i>
+          href="http://hxlstandard.org/standard/1_1beta/postcards/">postcard</a>.)</i>
         </p> 
         <p>
           This section lists the <b>core HXL hashtags</b> grouped into
@@ -188,7 +188,10 @@
           {% for hashtag in hashtags_by_category[category.get('#meta+category')] | sort %}
           {% set def = hashtag_defs[hashtag] %}
           <section id="tag_{{ hashtag[1:] }}" class="hashtag">
-            <h4>{{ hashtag }}</h4>
+            <h4>
+              {{ hashtag }}
+              <small><a href="#tag_{{ hashtag[1:] }}">🔗</a></small>
+            </h4>
             <p>
               {{ def.get('#description +long +en') | linkify | safe }}
               <i>Since HXL {{def.get('#meta +release') }}.</i>
@@ -197,8 +200,8 @@
             <p>
               Defaults to <var>{{ def.get('#valid_vocab +default')
               }}</var> with the <a
-              href="#att_code"><var>+code</var></a> attribute you do
-              not specify a vocabulary.
+              href="#att_code"><var>+code</var></a> attribute if you
+              do not specify a vocabulary.
             </p>
             {% endif %}
             {% if def.get('#valid_datatype') %}
@@ -252,8 +255,11 @@
           <h3>{{ category.get('#meta+category') }}</h3>
           {% for attribute in attributes_by_category[category.get('#meta+category')] %}
           {% set def = attribute_defs[attribute] %}
-          <section  id="{{ attribute | replace('+', 'att_')  }}" class="attribute">
-            <h4>{{ attribute }}</h4>
+          <section  id="att_{{ attribute[1:] }}" class="attribute">
+            <h4>
+              {{ attribute }}
+              <small><a href="#att_{{ attribute[1:] }}">🔗</a></small>
+            </h4>
             <p>
               {{ def.get('#description +long +en') | linkify | safe }}
               <i>Since HXL {{def.get('#meta +release') }}</i>
