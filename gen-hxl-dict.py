@@ -145,7 +145,7 @@ def process_attribute_def (row):
         attribute_hashtag_map[attribute].add(hashtag)
 
         
-def run(hashtag_categories_url, hashtags_url, attribute_categories_url, attributes_url):
+def run(hxl_release, hashtag_categories_url, hashtags_url, attribute_categories_url, attributes_url):
     """Run the processes to generate the HTML dictionary."""
 
     # Set up Jinja2 template environment for rendering HTML
@@ -164,9 +164,15 @@ def run(hashtag_categories_url, hashtags_url, attribute_categories_url, attribut
         hashtag_categories.append(row)
 
     logging.info("Reading hashtag definitions from {}...".format(hashtags_url))
-    hashtag_data = hxl.data(hashtags_url).with_rows(['#status=Released', '#status=Pre-release', '#status=Beta'])
+    hashtag_data = hxl.data(hashtags_url)
     for row in hashtag_data:
-        process_hashtag_def(row)
+        hashtag_release = row.get('#meta+release')
+        if hashtag_release:
+            try:
+                if float(hashtag_release) <= hxl_release:
+                    process_hashtag_def(row)
+            except ValueError:
+                logging.error("Bad release %s (%s)", hashtag_release, row.get('#valid_tag'))
 
     logging.info("Reading attribute category definitions from {}...".format(attribute_categories_url))
     category_data = hxl.data(attribute_categories_url).sort('#meta+category')
@@ -175,9 +181,15 @@ def run(hashtag_categories_url, hashtags_url, attribute_categories_url, attribut
         attribute_categories.append(row)
 
     logging.info("Reading attribute definitions from {}...".format(attributes_url))
-    attribute_data = hxl.data(attributes_url).with_rows(['#status=Released', '#status=Pre-release', '#status=Beta'])
+    attribute_data = hxl.data(attributes_url)
     for row in attribute_data:
-        process_attribute_def(row)
+        attribute_release = row.get('#meta+release')
+        if attribute_release:
+            try:
+                if float(attribute_release) <= hxl_release:
+                    process_attribute_def(row)
+            except ValueError:
+                logging.error("Bad release %s (%s)", attribute_release, row.get('#valid_attribute'))
 
     logging.info("Generating output...")
     template = env.get_template('dictionary.html')
@@ -201,7 +213,13 @@ def run(hashtag_categories_url, hashtags_url, attribute_categories_url, attribut
 if __name__ == '__main__':
     # log to STDERR
     logging.basicConfig(stream=sys.stderr, level=logging.INFO)
-    run(HASHTAG_CATEGORIES_URL, HASHTAGS_URL, ATTRIBUTE_CATEGORIES_URL, ATTRIBUTES_URL)
+    try:
+        hxl_release = float(sys.argv[1])
+    except Exception as e:
+        logging.exception(e)
+        logging.error("Usage: %s <HXL release>", sys.argv[0])
+        sys.exit(2)
+    run(hxl_release, HASHTAG_CATEGORIES_URL, HASHTAGS_URL, ATTRIBUTE_CATEGORIES_URL, ATTRIBUTES_URL)
 
 # end
 
